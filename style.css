@@ -87,14 +87,10 @@ body {
 
 .brand-logo {
 
-    width: 155px;
-
+    width: 233px;
     height: auto;
-
     max-height: 68px;
-
     object-fit: contain;
-
     display: block;
 
 }
