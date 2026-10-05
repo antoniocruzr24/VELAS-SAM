@@ -1,20 +1,26 @@
 /* ==========================================
+   PALETA DE COLORES LUMINA
+   ==========================================
+
+   CANDY       #D93870
+   OLD BERRY   #9C116A
+   CREAM       #FFE8D4
+   ORANGE      #FC8F2D
+
+   ========================================== */
+
+
+/* ==========================================
    ESTILOS GENERALES
    ========================================== */
 
 body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-    font-family:
-        'Segoe UI',
-        Tahoma,
-        Geneva,
-        Verdana,
-        sans-serif;
-
-    background-color: #f6efeb;
+    /* CREAM - Fondo principal */
+    background-color: #FFE8D4;
 
     margin: 0;
-
     padding: 0;
 }
 
@@ -24,20 +30,16 @@ body {
    ========================================== */
 
 .navbar {
-
     position: sticky;
-
     top: 0;
 
-    background-color: #fcecef;
+    /* Fondo CREAM */
+    background-color: #FFE8D4;
 
-    box-shadow:
-        0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 
     display: flex;
-
     justify-content: center;
-
     align-items: center;
 
     padding: 15px 20px;
@@ -50,23 +52,18 @@ body {
    LOGO DE LUMINA
    ========================================== */
 
-/*
-   ⭐⭐ TAMAÑO DEL LOGO ⭐⭐
-
-   Si quieres hacerlo más grande o pequeño,
-   modifica ÚNICAMENTE estos dos valores:
-
-       width
-       max-height
-
-   Actualmente está al 75% del tamaño anterior.
-*/
-
 .brand-logo {
+    /*
+       TAMAÑO DEL LOGO
 
-    width: 116px;       /* ← MODIFICA ESTE VALOR */
+       Actualmente está al 75% del tamaño original.
 
-    max-height: 51px;   /* ← MODIFICA ESTE VALOR */
+       Para hacerlo más grande o pequeño,
+       modifica estos DOS valores.
+    */
+
+    width: 116px;
+    max-height: 51px;
 
     object-fit: contain;
 
@@ -75,26 +72,41 @@ body {
 
 
 /*
-   ==========================================
-   EJEMPLOS DE TAMAÑO
-   ==========================================
+   EJEMPLOS:
 
-   ORIGINAL:
-   width: 155px;
-   max-height: 68px;
+   Más pequeño:
+   width: 100px;
+   max-height: 44px;
 
-   75%:
+   ACTUAL:
    width: 116px;
    max-height: 51px;
 
-   MÁS GRANDE:
+   Más grande:
    width: 140px;
    max-height: 61px;
 
-   MÁS PEQUEÑO:
-   width: 100px;
-   max-height: 44px;
+   Original:
+   width: 155px;
+   max-height: 68px;
 */
+
+
+/* ==========================================
+   NOMBRE DE LA MARCA
+   ========================================== */
+
+.brand-name {
+    margin: 0;
+
+    color: #9C116A;
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
 
 
 /* ==========================================
@@ -102,7 +114,6 @@ body {
    ========================================== */
 
 .menu-icon {
-
     position: absolute;
 
     left: 20px;
@@ -111,7 +122,8 @@ body {
 
     cursor: pointer;
 
-    color: #836253;
+    /* OLD BERRY */
+    color: #9C116A;
 
     user-select: none;
 }
@@ -122,7 +134,6 @@ body {
    ========================================== */
 
 .cart-icon {
-
     position: absolute;
 
     right: 20px;
@@ -131,7 +142,7 @@ body {
 
     cursor: pointer;
 
-    background: #f6efeb;
+    background: #FFE8D4;
 
     padding: 8px 12px;
 
@@ -146,15 +157,13 @@ body {
 
 
 .cart-icon:hover {
-
-    background: #e9e0d9;
-
+    background: #D93870;
 }
 
 
 #cart-count {
-
-    background: #836253;
+    /* OLD BERRY */
+    background: #9C116A;
 
     color: white;
 
@@ -175,7 +184,6 @@ body {
    ========================================== */
 
 .menu-sidebar {
-
     position: fixed;
 
     top: 0;
@@ -188,15 +196,13 @@ body {
 
     height: 100vh;
 
-    background-color: white;
+    background-color: #FFE8D4;
 
-    box-shadow:
-        4px 0 15px rgba(0,0,0,0.1);
+    box-shadow: 4px 0 15px rgba(0,0,0,0.1);
 
     z-index: 3000;
 
-    transition:
-        left 0.3s ease;
+    transition: left 0.3s ease;
 
     display: flex;
 
@@ -207,14 +213,11 @@ body {
 
 
 .menu-sidebar.open {
-
     left: 0;
-
 }
 
 
 .menu-overlay {
-
     position: fixed;
 
     top: 0;
@@ -225,8 +228,7 @@ body {
 
     height: 100%;
 
-    background:
-        rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.5);
 
     z-index: 2999;
 
@@ -241,16 +243,17 @@ body {
 
 
 .menu-overlay.open {
-
     visibility: visible;
 
     opacity: 1;
-
 }
 
 
-.menu-header {
+/* ==========================================
+   ENCABEZADO DEL MENÚ
+   ========================================== */
 
+.menu-header {
     display: flex;
 
     justify-content: space-between;
@@ -259,21 +262,19 @@ body {
 
     padding: 20px;
 
-    background-color: #836253;
+    /* OLD BERRY */
+    background-color: #9C116A;
 
     color: white;
 }
 
 
 .menu-header h3 {
-
     margin: 0;
-
 }
 
 
 .close-menu {
-
     background: none;
 
     border: none;
@@ -286,24 +287,25 @@ body {
 }
 
 
-.menu-list {
+/* ==========================================
+   OPCIONES DEL MENÚ
+   ========================================== */
 
+.menu-list {
     list-style: none;
 
     padding: 0;
 
     margin: 20px 0;
-
 }
 
 
 .menu-list li a {
-
     display: block;
 
     padding: 15px 25px;
 
-    color: #4a4a4a;
+    color: #9C116A;
 
     text-decoration: none;
 
@@ -313,20 +315,17 @@ body {
 
     transition: 0.2s;
 
-    border-left:
-        4px solid transparent;
+    border-left: 4px solid transparent;
 }
 
 
 .menu-list li a:hover,
 .menu-list li a.active {
+    background-color: #D93870;
 
-    background-color: #f6efeb;
+    color: white;
 
-    color: #836253;
-
-    border-left-color: #836253;
-
+    border-left-color: #9C116A;
 }
 
 
@@ -335,21 +334,18 @@ body {
    ========================================== */
 
 .menu-footer-contact {
-
     padding: 20px 25px;
 
-    border-top: 1px solid #eee;
+    border-top: 1px solid #D93870;
 
-    background-color: #faf5f2;
+    background-color: #FFE8D4;
 }
 
 
 .menu-footer-contact h4 {
+    margin: 0 0 12px 0;
 
-    margin:
-        0 0 12px 0;
-
-    color: #836253;
+    color: #9C116A;
 
     font-size: 14px;
 
@@ -360,7 +356,6 @@ body {
 
 
 .contact-item {
-
     display: flex;
 
     align-items: center;
@@ -369,7 +364,7 @@ body {
 
     margin-bottom: 10px;
 
-    color: #555;
+    color: #9C116A;
 
     font-size: 14px;
 
@@ -378,27 +373,24 @@ body {
 
 
 .contact-icon-svg {
-
     width: 18px;
 
     height: 18px;
 
-    color: #836253;
+    color: #D93870;
 
     flex-shrink: 0;
 }
 
 
 .phone-item {
-
     margin-bottom: 0;
 
     margin-top: 12px;
 
     padding-top: 10px;
 
-    border-top:
-        1px dashed #e2d2c8;
+    border-top: 1px dashed #D93870;
 }
 
 
@@ -407,7 +399,6 @@ body {
    ========================================== */
 
 .cart-sidebar {
-
     position: fixed;
 
     top: 0;
@@ -420,15 +411,13 @@ body {
 
     height: 100vh;
 
-    background-color: white;
+    background-color: #FFE8D4;
 
-    box-shadow:
-        -4px 0 15px rgba(0,0,0,0.1);
+    box-shadow: -4px 0 15px rgba(0,0,0,0.1);
 
     z-index: 3000;
 
-    transition:
-        right 0.4s ease;
+    transition: right 0.4s ease;
 
     display: flex;
 
@@ -437,14 +426,11 @@ body {
 
 
 .cart-sidebar.open {
-
     right: 0;
-
 }
 
 
 .cart-overlay {
-
     position: fixed;
 
     top: 0;
@@ -455,8 +441,7 @@ body {
 
     height: 100%;
 
-    background:
-        rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.5);
 
     z-index: 2999;
 
@@ -465,14 +450,15 @@ body {
 
 
 .cart-overlay.open {
-
     display: block;
-
 }
 
 
-.cart-header {
+/* ==========================================
+   ENCABEZADO DEL CARRITO
+   ========================================== */
 
+.cart-header {
     display: flex;
 
     justify-content: space-between;
@@ -481,17 +467,16 @@ body {
 
     padding: 20px;
 
-    border-bottom:
-        1px solid #eee;
+    border-bottom: 1px solid #D93870;
 
-    background-color: #bfa899;
+    /* OLD BERRY */
+    background-color: #9C116A;
 
     color: white;
 }
 
 
 .cart-header h2 {
-
     margin: 0;
 
     font-size: 20px;
@@ -499,7 +484,6 @@ body {
 
 
 .close-cart {
-
     background: none;
 
     border: none;
@@ -513,7 +497,6 @@ body {
 
 
 .cart-items {
-
     flex: 1;
 
     overflow-y: auto;
@@ -523,25 +506,26 @@ body {
 
 
 .empty-cart-msg {
-
     text-align: center;
 
-    color: #888;
+    color: #9C116A;
 
     margin-top: 50px;
 }
 
 
-.cart-item {
+/* ==========================================
+   PRODUCTOS DEL CARRITO
+   ========================================== */
 
+.cart-item {
     display: flex;
 
     justify-content: space-between;
 
     align-items: center;
 
-    border-bottom:
-        1px solid #f0f0f0;
+    border-bottom: 1px solid #D93870;
 
     padding-bottom: 15px;
 
@@ -550,19 +534,16 @@ body {
 
 
 .cart-item-info h4 {
+    margin: 0 0 5px 0;
 
-    margin:
-        0 0 5px 0;
-
-    color: #4a4a4a;
+    color: #9C116A;
 
     font-size: 15px;
 }
 
 
 .cart-item-price {
-
-    color: #836253;
+    color: #9C116A;
 
     font-weight: bold;
 
@@ -571,17 +552,15 @@ body {
 
 
 .cart-wholesale-note {
-
     font-size: 11px;
 
-    color: #4caf50;
+    color: #D93870;
 
     font-weight: bold;
 }
 
 
 .cart-item-controls {
-
     display: flex;
 
     align-items: center;
@@ -591,8 +570,9 @@ body {
 
 
 .qty-btn {
+    background: #D93870;
 
-    background: #e9e0d9;
+    color: white;
 
     border: none;
 
@@ -607,18 +587,16 @@ body {
 
 
 .qty-btn:hover {
-
-    background: #d6ccc4;
+    background: #9C116A;
 }
 
 
 .delete-btn {
-
     background: none;
 
     border: none;
 
-    color: #d9534f;
+    color: #9C116A;
 
     font-size: 18px;
 
@@ -628,24 +606,25 @@ body {
 }
 
 
-.cart-footer {
+/* ==========================================
+   PIE DEL CARRITO
+   ========================================== */
 
+.cart-footer {
     padding: 20px;
 
-    border-top:
-        1px solid #eee;
+    border-top: 1px solid #D93870;
 
-    background: #fafafa;
+    background: #FFE8D4;
 }
 
 
 .cart-total {
-
     font-size: 18px;
 
     font-weight: bold;
 
-    color: #333;
+    color: #9C116A;
 
     margin-bottom: 15px;
 
@@ -656,10 +635,10 @@ body {
 
 
 .checkout-btn {
-
     width: 100%;
 
-    background-color: #836253;
+    /* CANDY */
+    background-color: #D93870;
 
     color: white;
 
@@ -680,35 +659,34 @@ body {
 
 
 .checkout-btn:hover {
-
-    background-color: #6a4f43;
+    /* OLD BERRY */
+    background-color: #9C116A;
 }
 
 
 /* ==========================================
-   CONTENEDORES
+   CONTENEDOR PRINCIPAL
    ========================================== */
 
 .catalog-container {
-
-    background-color: white;
+    /* CREAM */
+    background-color: #FFE8D4;
 
     max-width: 1000px;
 
-    margin:
-        30px auto 50px auto;
+    margin: 0 auto;
 
     padding: 40px;
 
     border-radius: 8px;
 
-    box-shadow:
-        0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+
+    margin-bottom: 50px;
 }
 
 
 .catalog-container.hidden {
-
     display: none;
 }
 
@@ -718,7 +696,6 @@ body {
    ========================================== */
 
 .story-section {
-
     text-align: center;
 
     margin-bottom: 40px;
@@ -726,8 +703,8 @@ body {
 
 
 .story-section h2 {
-
-    color: #836253;
+    /* OLD BERRY */
+    color: #9C116A;
 
     font-size: 24px;
 
@@ -736,8 +713,7 @@ body {
 
 
 .story-section p {
-
-    color: #555;
+    color: #5c4a50;
 
     line-height: 1.6;
 
@@ -754,7 +730,6 @@ body {
    ========================================== */
 
 .benefits-section {
-
     margin-bottom: 40px;
 
     text-align: center;
@@ -762,8 +737,8 @@ body {
 
 
 .benefits-section h2 {
-
-    color: #836253;
+    /* OLD BERRY */
+    color: #9C116A;
 
     font-size: 24px;
 
@@ -772,8 +747,7 @@ body {
 
 
 .intro-benefits {
-
-    color: #666;
+    color: #5c4a50;
 
     margin-bottom: 25px;
 
@@ -782,7 +756,6 @@ body {
 
 
 .benefits-grid {
-
     display: grid;
 
     grid-template-columns:
@@ -798,31 +771,29 @@ body {
 
 
 .benefit-card {
-
-    background-color: #faf5f2;
+    /* CREAM */
+    background-color: #FFE8D4;
 
     padding: 20px;
 
     border-radius: 6px;
 
-    border-left:
-        4px solid #836253;
+    /* OLD BERRY */
+    border-left: 4px solid #9C116A;
 }
 
 
 .benefit-card h3 {
-
     margin-top: 0;
 
-    color: #836253;
+    color: #9C116A;
 
     font-size: 17px;
 }
 
 
 .benefit-card p {
-
-    color: #666;
+    color: #5c4a50;
 
     font-size: 14px;
 
@@ -837,14 +808,12 @@ body {
    ========================================== */
 
 .essays-guide {
-
     margin-bottom: 40px;
 }
 
 
 .essays-guide h2 {
-
-    color: #836253;
+    color: #9C116A;
 
     font-size: 24px;
 
@@ -855,7 +824,6 @@ body {
 
 
 .guide-list {
-
     display: flex;
 
     flex-direction: column;
@@ -865,14 +833,13 @@ body {
 
 
 .guide-item {
-
     display: flex;
 
     align-items: center;
 
     gap: 20px;
 
-    background: #faf5f2;
+    background: #FFE8D4;
 
     padding: 15px;
 
@@ -881,7 +848,6 @@ body {
 
 
 .guide-item img {
-
     width: 80px;
 
     height: 80px;
@@ -895,44 +861,38 @@ body {
 
 
 .guide-item h4 {
+    margin: 0 0 5px 0;
 
-    margin:
-        0 0 5px 0;
-
-    color: #836253;
+    color: #9C116A;
 
     font-size: 16px;
 }
 
 
 .guide-item p {
-
     margin: 0;
 
-    color: #666;
+    color: #5c4a50;
 
     font-size: 14px;
 }
 
 
 /* ==========================================
-   CARRUSEL DE PRODUCTOS
+   PRODUCTOS
    ========================================== */
 
 .product-carousel-section {
-
     margin-top: 40px;
 
-    border-top:
-        1px solid #eee;
+    border-top: 1px solid #D93870;
 
     padding-top: 30px;
 }
 
 
 .product-carousel-section h2 {
-
-    color: #836253;
+    color: #9C116A;
 
     font-size: 24px;
 
@@ -943,60 +903,23 @@ body {
 
 
 .carousel-hint {
-
-    display: block;
-
-    width: fit-content;
-
-    margin:
-        0 auto 20px auto;
-
-    padding: 10px 16px;
-
     text-align: center;
 
-    color: #836253;
-
-    background-color: #f6efeb;
-
-    border:
-        1px solid #d6ccc4;
-
-    border-radius: 6px;
+    color: #9C116A;
 
     font-size: 13px;
 
+    margin-bottom: 20px;
+
     cursor: pointer;
-
-    text-decoration: none;
-
-    transition: 0.3s;
-
-    -webkit-tap-highlight-color:
-        transparent;
-}
-
-
-.carousel-hint:hover {
-
-    background-color: #e9ddd5;
-
-    color: #6a4f43;
-}
-
-
-.carousel-hint:active {
-
-    transform: scale(0.98);
 }
 
 
 /* ==========================================
-   CARRUSEL HORIZONTAL
+   CARRUSEL
    ========================================== */
 
 .horizontal-carousel {
-
     display: flex;
 
     overflow-x: auto;
@@ -1010,25 +933,21 @@ body {
 
 
 .horizontal-carousel::-webkit-scrollbar {
-
     height: 8px;
 }
 
 
 .horizontal-carousel::-webkit-scrollbar-thumb {
-
-    background: #d6ccc4;
+    background: #D93870;
 
     border-radius: 4px;
 }
 
 
 .candle-item {
+    background: #FFF8F2;
 
-    background: #fff;
-
-    border:
-        1px solid #eee;
+    border: 1px solid #D93870;
 
     padding: 20px;
 
@@ -1047,7 +966,6 @@ body {
 
 
 .gallery-img {
-
     width: 100%;
 
     height: 160px;
@@ -1058,41 +976,40 @@ body {
 
     margin-bottom: 15px;
 
-    transition:
-        transform 0.2s;
+    transition: transform 0.2s;
 }
 
 
 .gallery-img:hover {
-
     transform: scale(1.05);
 }
 
 
 .candle-item h3 {
-
     margin: 0;
 
-    color: #4a4a4a;
+    color: #9C116A;
 
     font-size: 17px;
 }
 
 
 .candle-item .desc {
-
-    color: #888;
+    color: #6b5a60;
 
     font-size: 13px;
 
-    margin:
-        5px 0 15px 0;
+    margin: 5px 0 15px 0;
 }
 
 
-.price-badge {
+/* ==========================================
+   PRECIOS
+   ========================================== */
 
-    background-color: #a88a7b;
+.price-badge {
+    /* ORANGE */
+    background-color: #FC8F2D;
 
     color: white;
 
@@ -1109,8 +1026,7 @@ body {
 
 
 .wholesale {
-
-    color: #777;
+    color: #6b5a60;
 
     font-size: 11px;
 
@@ -1118,8 +1034,11 @@ body {
 }
 
 
-.cart-controls {
+/* ==========================================
+   CONTROLES DE CARRITO
+   ========================================== */
 
+.cart-controls {
     display: flex;
 
     justify-content: center;
@@ -1131,25 +1050,25 @@ body {
 
 
 .qty-input {
-
     width: 45px;
 
     padding: 8px;
 
     text-align: center;
 
-    border:
-        1px solid #ddd;
+    border: 1px solid #D93870;
 
     border-radius: 4px;
 
-    color: #555;
+    color: #9C116A;
+
+    background: #FFF8F2;
 }
 
 
 .add-btn {
-
-    background-color: #836253;
+    /* CANDY */
+    background-color: #D93870;
 
     color: white;
 
@@ -1168,8 +1087,8 @@ body {
 
 
 .add-btn:hover {
-
-    background-color: #6a4f43;
+    /* OLD BERRY */
+    background-color: #9C116A;
 }
 
 
@@ -1178,7 +1097,6 @@ body {
    ========================================== */
 
 .gallery {
-
     display: grid;
 
     grid-template-columns:
@@ -1198,7 +1116,6 @@ body {
    ========================================== */
 
 .custom-builder {
-
     max-width: 500px;
 
     margin: 0 auto;
@@ -1208,8 +1125,7 @@ body {
 
 
 .custom-builder h3 {
-
-    color: #836253;
+    color: #9C116A;
 
     font-size: 22px;
 
@@ -1218,7 +1134,6 @@ body {
 
 
 .form-group {
-
     text-align: left;
 
     margin-bottom: 20px;
@@ -1226,12 +1141,11 @@ body {
 
 
 .form-group label {
-
     display: block;
 
     font-weight: bold;
 
-    color: #555;
+    color: #9C116A;
 
     margin-bottom: 8px;
 
@@ -1240,35 +1154,36 @@ body {
 
 
 .form-group select {
-
     width: 100%;
 
     padding: 10px;
 
-    border:
-        1px solid #ccc;
+    border: 1px solid #D93870;
 
     border-radius: 5px;
 
     font-size: 15px;
 
-    background-color: #fff;
+    background-color: #FFF8F2;
+
+    color: #9C116A;
 }
 
 
 .custom-price-info {
-
-    background: #f6efeb;
+    background: #FFE8D4;
 
     padding: 10px;
 
     border-radius: 5px;
 
-    color: #836253;
+    color: #9C116A;
 
     font-size: 14px;
 
     margin-top: 15px;
+
+    border: 1px solid #D93870;
 }
 
 
@@ -1277,20 +1192,25 @@ body {
    ========================================== */
 
 .site-footer {
+    /*
+       CAMBIO IMPORTANTE:
 
-    background-color: #4a382f;
+       Antes era café oscuro.
 
-    color: #f6efeb;
+       Ahora es OLD BERRY.
+    */
 
-    padding:
-        40px 20px 20px 20px;
+    background-color: #9C116A;
+
+    color: #FFE8D4;
+
+    padding: 40px 20px 20px 20px;
 
     margin-top: 60px;
 }
 
 
 .footer-content {
-
     max-width: 1000px;
 
     margin: 0 auto;
@@ -1306,23 +1226,20 @@ body {
 
 
 .footer-brand h3 {
+    margin: 0 0 10px 0;
 
-    margin:
-        0 0 10px 0;
-
-    color: #bfa899;
+    color: #FFE8D4;
 
     font-size: 20px;
 }
 
 
 .footer-brand p {
-
     margin: 0;
 
     font-size: 14px;
 
-    color: #d6ccc4;
+    color: #FFE8D4;
 
     max-width: 300px;
 
@@ -1331,11 +1248,9 @@ body {
 
 
 .footer-contact-info h4 {
+    margin: 0 0 12px 0;
 
-    margin:
-        0 0 12px 0;
-
-    color: #bfa899;
+    color: #FFE8D4;
 
     font-size: 15px;
 
@@ -1344,7 +1259,6 @@ body {
 
 
 .footer-item {
-
     display: flex;
 
     align-items: center;
@@ -1355,39 +1269,35 @@ body {
 
     font-size: 14px;
 
-    color: #e9e0d9;
+    color: #FFE8D4;
 }
 
 
 .footer-icon-svg {
-
     width: 16px;
 
     height: 16px;
 
-    color: #bfa899;
+    color: #D93870;
 
     flex-shrink: 0;
 }
 
 
 .footer-bottom {
-
     max-width: 1000px;
 
-    margin:
-        30px auto 0 auto;
+    margin: 30px auto 0 auto;
 
     padding-top: 15px;
 
-    border-top:
-        1px solid #5d483e;
+    border-top: 1px solid #D93870;
 
     text-align: center;
 
     font-size: 12px;
 
-    color: #bca89d;
+    color: #FFE8D4;
 }
 
 
@@ -1396,7 +1306,6 @@ body {
    ========================================== */
 
 .modal {
-
     display: none;
 
     position: fixed;
@@ -1411,8 +1320,7 @@ body {
 
     height: 100%;
 
-    background-color:
-        rgba(0, 0, 0, 0.85);
+    background-color: rgba(0, 0, 0, 0.85);
 
     align-items: center;
 
@@ -1421,7 +1329,6 @@ body {
 
 
 .modal-content {
-
     max-width: 80%;
 
     max-height: 85vh;
@@ -1433,7 +1340,6 @@ body {
 
 
 .close-btn {
-
     position: absolute;
 
     top: 20px;
@@ -1451,15 +1357,13 @@ body {
 
 
 .nav-btn {
-
     cursor: pointer;
 
     position: absolute;
 
     top: 50%;
 
-    transform:
-        translateY(-50%);
+    transform: translateY(-50%);
 
     padding: 16px;
 
@@ -1467,8 +1371,7 @@ body {
 
     font-size: 24px;
 
-    background-color:
-        rgba(0,0,0,0.5);
+    background-color: #9C116A;
 
     border: none;
 
@@ -1477,12 +1380,81 @@ body {
 
 
 .prev-btn {
-
     left: 20px;
 }
 
 
 .next-btn {
-
     right: 20px;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 768px) {
+
+    .brand-logo {
+        /*
+           TAMAÑO DEL LOGO EN CELULAR
+
+           Puedes modificar estos valores
+           independientemente si quieres.
+        */
+
+        width: 94px;
+
+        max-height: 45px;
+    }
+
+
+    .navbar {
+        padding: 12px 15px;
+    }
+
+
+    .menu-icon {
+        left: 15px;
+
+        font-size: 24px;
+    }
+
+
+    .cart-icon {
+        right: 15px;
+
+        font-size: 21px;
+
+        padding: 7px 10px;
+    }
+
+
+    .catalog-container {
+        margin: 0 10px 40px 10px;
+
+        padding: 25px 20px;
+    }
+
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .guide-item {
+        align-items: flex-start;
+    }
+
+
+    .candle-item {
+        min-width: 220px;
+
+        max-width: 220px;
+    }
+
+
+    .footer-content {
+        flex-direction: column;
+    }
 }
