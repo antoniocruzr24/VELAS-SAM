@@ -2,11 +2,6 @@
    ESTILOS GENERALES
    ========================================== */
 
-* {
-    box-sizing: border-box;
-}
-
-
 body {
 
     font-family:
@@ -21,13 +16,11 @@ body {
     margin: 0;
 
     padding: 0;
-
 }
 
 
-
 /* ==========================================
-   BARRA SUPERIOR
+   BARRA DE NAVEGACIÓN
    ========================================== */
 
 .navbar {
@@ -36,14 +29,10 @@ body {
 
     top: 0;
 
-    width: 100%;
-
-    height: 130px;
-
-    background-color: #FCE2E9;
+    background-color: #fcecef;
 
     box-shadow:
-        0 2px 10px rgba(0, 0, 0, 0.08);
+        0 2px 10px rgba(0,0,0,0.1);
 
     display: flex;
 
@@ -51,53 +40,65 @@ body {
 
     align-items: center;
 
-    padding: 0 20px;
+    padding: 15px 20px;
 
     z-index: 2000;
-
 }
-
 
 
 /* ==========================================
-   LOGO LUMINA
+   LOGO DE LUMINA
    ========================================== */
 
-.brand-logo-container {
+/*
+   ⭐⭐ TAMAÑO DEL LOGO ⭐⭐
 
-    position: absolute;
+   Si quieres hacerlo más grande o pequeño,
+   modifica ÚNICAMENTE estos dos valores:
 
-    left: 50%;
+       width
+       max-height
 
-    top: 50%;
-
-    transform:
-        translate(-50%, -50%);
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    height: 100%;
-
-}
-
+   Actualmente está al 75% del tamaño anterior.
+*/
 
 .brand-logo {
 
-    width: 310px;
-    height: auto;
-    max-height: 120px;
+    width: 116px;       /* ← MODIFICA ESTE VALOR */
+
+    max-height: 51px;   /* ← MODIFICA ESTE VALOR */
+
     object-fit: contain;
+
     display: block;
 }
 
 
+/*
+   ==========================================
+   EJEMPLOS DE TAMAÑO
+   ==========================================
+
+   ORIGINAL:
+   width: 155px;
+   max-height: 68px;
+
+   75%:
+   width: 116px;
+   max-height: 51px;
+
+   MÁS GRANDE:
+   width: 140px;
+   max-height: 61px;
+
+   MÁS PEQUEÑO:
+   width: 100px;
+   max-height: 44px;
+*/
+
 
 /* ==========================================
-   BOTÓN MENÚ
+   ICONO DEL MENÚ
    ========================================== */
 
 .menu-icon {
@@ -106,31 +107,18 @@ body {
 
     left: 20px;
 
-    font-size: 28px;
+    font-size: 26px;
 
     cursor: pointer;
 
     color: #836253;
 
     user-select: none;
-
-    z-index: 2;
-
-    line-height: 1;
-
 }
-
-
-.menu-icon:hover {
-
-    color: #6a4f43;
-
-}
-
 
 
 /* ==========================================
-   CARRITO SUPERIOR
+   CARRITO
    ========================================== */
 
 .cart-icon {
@@ -143,7 +131,7 @@ body {
 
     cursor: pointer;
 
-    background: rgba(255, 255, 255, 0.65);
+    background: #f6efeb;
 
     padding: 8px 12px;
 
@@ -154,15 +142,12 @@ body {
     align-items: center;
 
     transition: 0.3s;
-
-    z-index: 2;
-
 }
 
 
 .cart-icon:hover {
 
-    background: rgba(255, 255, 255, 0.9);
+    background: #e9e0d9;
 
 }
 
@@ -182,13 +167,11 @@ body {
     padding: 2px 6px;
 
     margin-left: 5px;
-
 }
 
 
-
 /* ==========================================
-   MENÚ LATERAL
+   MENÚ LATERAL IZQUIERDO
    ========================================== */
 
 .menu-sidebar {
@@ -220,7 +203,6 @@ body {
     flex-direction: column;
 
     justify-content: space-between;
-
 }
 
 
@@ -255,7 +237,6 @@ body {
     transition:
         opacity 0.3s ease,
         visibility 0.3s ease;
-
 }
 
 
@@ -267,11 +248,6 @@ body {
 
 }
 
-
-
-/* ==========================================
-   ENCABEZADO DEL MENÚ
-   ========================================== */
 
 .menu-header {
 
@@ -286,7 +262,6 @@ body {
     background-color: #836253;
 
     color: white;
-
 }
 
 
@@ -308,14 +283,8 @@ body {
     font-size: 30px;
 
     cursor: pointer;
-
 }
 
-
-
-/* ==========================================
-   LISTA DEL MENÚ
-   ========================================== */
 
 .menu-list {
 
@@ -346,7 +315,6 @@ body {
 
     border-left:
         4px solid transparent;
-
 }
 
 
@@ -362,7 +330,6 @@ body {
 }
 
 
-
 /* ==========================================
    CONTACTO DEL MENÚ
    ========================================== */
@@ -374,7 +341,6 @@ body {
     border-top: 1px solid #eee;
 
     background-color: #faf5f2;
-
 }
 
 
@@ -390,7 +356,6 @@ body {
     text-transform: uppercase;
 
     letter-spacing: 0.5px;
-
 }
 
 
@@ -409,7 +374,6 @@ body {
     font-size: 14px;
 
     font-weight: 500;
-
 }
 
 
@@ -422,7 +386,6 @@ body {
     color: #836253;
 
     flex-shrink: 0;
-
 }
 
 
@@ -436,9 +399,7 @@ body {
 
     border-top:
         1px dashed #e2d2c8;
-
 }
-
 
 
 /* ==========================================
@@ -472,7 +433,6 @@ body {
     display: flex;
 
     flex-direction: column;
-
 }
 
 
@@ -501,7 +461,6 @@ body {
     z-index: 2999;
 
     display: none;
-
 }
 
 
@@ -528,7 +487,6 @@ body {
     background-color: #bfa899;
 
     color: white;
-
 }
 
 
@@ -537,7 +495,6 @@ body {
     margin: 0;
 
     font-size: 20px;
-
 }
 
 
@@ -552,7 +509,6 @@ body {
     font-size: 30px;
 
     cursor: pointer;
-
 }
 
 
@@ -563,7 +519,6 @@ body {
     overflow-y: auto;
 
     padding: 20px;
-
 }
 
 
@@ -574,7 +529,6 @@ body {
     color: #888;
 
     margin-top: 50px;
-
 }
 
 
@@ -592,7 +546,6 @@ body {
     padding-bottom: 15px;
 
     margin-bottom: 15px;
-
 }
 
 
@@ -604,7 +557,6 @@ body {
     color: #4a4a4a;
 
     font-size: 15px;
-
 }
 
 
@@ -615,7 +567,6 @@ body {
     font-weight: bold;
 
     font-size: 13px;
-
 }
 
 
@@ -626,7 +577,6 @@ body {
     color: #4caf50;
 
     font-weight: bold;
-
 }
 
 
@@ -637,7 +587,6 @@ body {
     align-items: center;
 
     gap: 8px;
-
 }
 
 
@@ -654,14 +603,12 @@ body {
     cursor: pointer;
 
     font-weight: bold;
-
 }
 
 
 .qty-btn:hover {
 
     background: #d6ccc4;
-
 }
 
 
@@ -678,7 +625,6 @@ body {
     cursor: pointer;
 
     margin-left: 10px;
-
 }
 
 
@@ -690,7 +636,6 @@ body {
         1px solid #eee;
 
     background: #fafafa;
-
 }
 
 
@@ -707,7 +652,6 @@ body {
     display: flex;
 
     justify-content: space-between;
-
 }
 
 
@@ -732,16 +676,13 @@ body {
     cursor: pointer;
 
     transition: 0.3s;
-
 }
 
 
 .checkout-btn:hover {
 
     background-color: #6a4f43;
-
 }
-
 
 
 /* ==========================================
@@ -763,16 +704,13 @@ body {
 
     box-shadow:
         0 4px 15px rgba(0,0,0,0.05);
-
 }
 
 
 .catalog-container.hidden {
 
     display: none;
-
 }
-
 
 
 /* ==========================================
@@ -784,7 +722,6 @@ body {
     text-align: center;
 
     margin-bottom: 40px;
-
 }
 
 
@@ -795,7 +732,6 @@ body {
     font-size: 24px;
 
     margin-bottom: 15px;
-
 }
 
 
@@ -810,9 +746,7 @@ body {
     max-width: 800px;
 
     margin: 0 auto;
-
 }
-
 
 
 /* ==========================================
@@ -824,7 +758,6 @@ body {
     margin-bottom: 40px;
 
     text-align: center;
-
 }
 
 
@@ -835,7 +768,6 @@ body {
     font-size: 24px;
 
     margin-bottom: 10px;
-
 }
 
 
@@ -846,7 +778,6 @@ body {
     margin-bottom: 25px;
 
     font-size: 15px;
-
 }
 
 
@@ -863,7 +794,6 @@ body {
     gap: 20px;
 
     text-align: left;
-
 }
 
 
@@ -877,7 +807,6 @@ body {
 
     border-left:
         4px solid #836253;
-
 }
 
 
@@ -888,7 +817,6 @@ body {
     color: #836253;
 
     font-size: 17px;
-
 }
 
 
@@ -901,9 +829,7 @@ body {
     margin-bottom: 0;
 
     line-height: 1.5;
-
 }
-
 
 
 /* ==========================================
@@ -913,7 +839,6 @@ body {
 .essays-guide {
 
     margin-bottom: 40px;
-
 }
 
 
@@ -926,7 +851,6 @@ body {
     text-align: center;
 
     margin-bottom: 20px;
-
 }
 
 
@@ -937,7 +861,6 @@ body {
     flex-direction: column;
 
     gap: 15px;
-
 }
 
 
@@ -954,7 +877,6 @@ body {
     padding: 15px;
 
     border-radius: 6px;
-
 }
 
 
@@ -969,7 +891,6 @@ body {
     border-radius: 6px;
 
     flex-shrink: 0;
-
 }
 
 
@@ -981,7 +902,6 @@ body {
     color: #836253;
 
     font-size: 16px;
-
 }
 
 
@@ -992,9 +912,7 @@ body {
     color: #666;
 
     font-size: 14px;
-
 }
-
 
 
 /* ==========================================
@@ -1009,7 +927,6 @@ body {
         1px solid #eee;
 
     padding-top: 30px;
-
 }
 
 
@@ -1022,7 +939,6 @@ body {
     text-align: center;
 
     margin-bottom: 5px;
-
 }
 
 
@@ -1058,7 +974,6 @@ body {
 
     -webkit-tap-highlight-color:
         transparent;
-
 }
 
 
@@ -1067,16 +982,18 @@ body {
     background-color: #e9ddd5;
 
     color: #6a4f43;
-
 }
 
 
 .carousel-hint:active {
 
     transform: scale(0.98);
-
 }
 
+
+/* ==========================================
+   CARRUSEL HORIZONTAL
+   ========================================== */
 
 .horizontal-carousel {
 
@@ -1089,24 +1006,20 @@ body {
     padding-bottom: 15px;
 
     scroll-snap-type: x mandatory;
-
 }
 
 
 .horizontal-carousel::-webkit-scrollbar {
 
     height: 8px;
-
 }
 
 
 .horizontal-carousel::-webkit-scrollbar-thumb {
 
-    background:
-        #d6ccc4;
+    background: #d6ccc4;
 
     border-radius: 4px;
-
 }
 
 
@@ -1130,7 +1043,6 @@ body {
     flex: 0 0 auto;
 
     scroll-snap-align: start;
-
 }
 
 
@@ -1148,14 +1060,12 @@ body {
 
     transition:
         transform 0.2s;
-
 }
 
 
 .gallery-img:hover {
 
     transform: scale(1.05);
-
 }
 
 
@@ -1166,7 +1076,6 @@ body {
     color: #4a4a4a;
 
     font-size: 17px;
-
 }
 
 
@@ -1178,7 +1087,6 @@ body {
 
     margin:
         5px 0 15px 0;
-
 }
 
 
@@ -1197,7 +1105,6 @@ body {
     border-radius: 4px;
 
     margin-bottom: 10px;
-
 }
 
 
@@ -1208,7 +1115,6 @@ body {
     font-size: 11px;
 
     margin-bottom: 15px;
-
 }
 
 
@@ -1221,7 +1127,6 @@ body {
     align-items: center;
 
     gap: 10px;
-
 }
 
 
@@ -1239,7 +1144,6 @@ body {
     border-radius: 4px;
 
     color: #555;
-
 }
 
 
@@ -1260,20 +1164,17 @@ body {
     font-weight: bold;
 
     transition: 0.3s;
-
 }
 
 
 .add-btn:hover {
 
     background-color: #6a4f43;
-
 }
 
 
-
 /* ==========================================
-   CATÁLOGO COMPLETO
+   GALERÍA COMPLETA
    ========================================== */
 
 .gallery {
@@ -1289,9 +1190,7 @@ body {
     gap: 40px 20px;
 
     justify-items: center;
-
 }
-
 
 
 /* ==========================================
@@ -1305,7 +1204,6 @@ body {
     margin: 0 auto;
 
     text-align: center;
-
 }
 
 
@@ -1316,7 +1214,6 @@ body {
     font-size: 22px;
 
     margin-top: 0;
-
 }
 
 
@@ -1325,7 +1222,6 @@ body {
     text-align: left;
 
     margin-bottom: 20px;
-
 }
 
 
@@ -1340,7 +1236,6 @@ body {
     margin-bottom: 8px;
 
     font-size: 14px;
-
 }
 
 
@@ -1358,7 +1253,6 @@ body {
     font-size: 15px;
 
     background-color: #fff;
-
 }
 
 
@@ -1375,13 +1269,11 @@ body {
     font-size: 14px;
 
     margin-top: 15px;
-
 }
 
 
-
 /* ==========================================
-   FOOTER
+   PIE DE PÁGINA
    ========================================== */
 
 .site-footer {
@@ -1394,7 +1286,6 @@ body {
         40px 20px 20px 20px;
 
     margin-top: 60px;
-
 }
 
 
@@ -1411,7 +1302,6 @@ body {
     flex-wrap: wrap;
 
     gap: 30px;
-
 }
 
 
@@ -1423,7 +1313,6 @@ body {
     color: #bfa899;
 
     font-size: 20px;
-
 }
 
 
@@ -1438,7 +1327,6 @@ body {
     max-width: 300px;
 
     line-height: 1.5;
-
 }
 
 
@@ -1452,7 +1340,6 @@ body {
     font-size: 15px;
 
     text-transform: uppercase;
-
 }
 
 
@@ -1469,7 +1356,18 @@ body {
     font-size: 14px;
 
     color: #e9e0d9;
+}
 
+
+.footer-icon-svg {
+
+    width: 16px;
+
+    height: 16px;
+
+    color: #bfa899;
+
+    flex-shrink: 0;
 }
 
 
@@ -1490,13 +1388,11 @@ body {
     font-size: 12px;
 
     color: #bca89d;
-
 }
 
 
-
 /* ==========================================
-   MODAL DE IMÁGENES
+   MODAL DEL CARRUSEL
    ========================================== */
 
 .modal {
@@ -1521,7 +1417,6 @@ body {
     align-items: center;
 
     justify-content: center;
-
 }
 
 
@@ -1534,7 +1429,6 @@ body {
     border-radius: 8px;
 
     object-fit: contain;
-
 }
 
 
@@ -1553,7 +1447,6 @@ body {
     font-weight: bold;
 
     cursor: pointer;
-
 }
 
 
@@ -1580,101 +1473,16 @@ body {
     border: none;
 
     border-radius: 4px;
-
 }
 
 
 .prev-btn {
 
     left: 20px;
-
 }
 
 
 .next-btn {
 
     right: 20px;
-
-}
-
-
-
-/* ==========================================
-   ADAPTACIÓN PARA CELULAR
-   ========================================== */
-
-@media (max-width: 600px) {
-    .navbar {
-        height: 100px;
-    }
-
-    .brand-logo {
-        width: 250px;
-        max-height: 90px;
-    }
-
-
-    .menu-icon {
-
-        left: 16px;
-
-        font-size: 26px;
-
-    }
-
-
-    .cart-icon {
-
-        right: 16px;
-
-        font-size: 21px;
-
-        padding:
-            7px 10px;
-
-    }
-
-
-    .catalog-container {
-
-        margin:
-            20px 10px 40px 10px;
-
-        padding: 25px 18px;
-
-    }
-
-
-    .guide-item {
-
-        align-items: flex-start;
-
-    }
-
-
-    .guide-item img {
-
-        width: 65px;
-
-        height: 65px;
-
-    }
-
-
-    .candle-item {
-
-        min-width: 220px;
-
-        max-width: 220px;
-
-    }
-
-
-    .footer-content {
-
-        flex-direction: column;
-
-    }
-
-
 }
