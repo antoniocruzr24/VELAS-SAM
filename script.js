@@ -1,146 +1,278 @@
 // ==========================================
-// 1. LÓGICA DEL CARRUSEL DE IMÁGENES (MODAL)
+// 1. LÓGICA DEL CARRUSEL DE IMÁGENES
 // ==========================================
-const modal = document.getElementById("carousel-modal");
-const modalImg = document.getElementById("modal-img");
-const closeBtn = document.querySelector(".close-btn");
-const prevBtn = document.querySelector(".prev-btn");
-const nextBtn = document.querySelector(".next-btn");
+
+const modal =
+    document.getElementById("carousel-modal");
+
+const modalImg =
+    document.getElementById("modal-img");
+
+const closeBtn =
+    document.querySelector(".close-btn");
+
+const prevBtn =
+    document.querySelector(".prev-btn");
+
+const nextBtn =
+    document.querySelector(".next-btn");
+
 
 let currentGallery = [];
 let currentIndex = 0;
 
-// Delegación para capturar clics en imágenes de la galería o carrusel
+
+// Delegación para capturar clics en imágenes
 document.addEventListener("click", (e) => {
-    if (e.target.classList.contains("gallery-img")) {
-        const galleryData = e.target.getAttribute("data-gallery");
+
+    if (
+        e.target.classList.contains("gallery-img")
+    ) {
+
+        const galleryData =
+            e.target.getAttribute("data-gallery");
+
 
         if (galleryData) {
-            currentGallery = galleryData.split(",");
+
+            currentGallery =
+                galleryData.split(",");
+
             currentIndex = 0;
-            modalImg.src = currentGallery[currentIndex];
+
+            modalImg.src =
+                currentGallery[currentIndex];
+
             modal.style.display = "flex";
+
         }
+
     }
+
 });
 
+
+// Cerrar modal
 const closeModal = () => {
+
     modal.style.display = "none";
+
 };
 
-closeBtn.addEventListener("click", closeModal);
 
+closeBtn.addEventListener(
+    "click",
+    closeModal
+);
+
+
+// Cerrar haciendo clic fuera de la imagen
 modal.addEventListener("click", (event) => {
+
     if (event.target === modal) {
+
         closeModal();
+
     }
+
 });
 
+
+// Imagen anterior
 const showPrev = () => {
-    currentIndex = (currentIndex > 0)
-        ? currentIndex - 1
-        : currentGallery.length - 1;
 
-    modalImg.src = currentGallery[currentIndex];
+    currentIndex =
+        (currentIndex > 0)
+            ? currentIndex - 1
+            : currentGallery.length - 1;
+
+
+    modalImg.src =
+        currentGallery[currentIndex];
+
 };
 
+
+// Imagen siguiente
 const showNext = () => {
-    currentIndex = (currentIndex < currentGallery.length - 1)
-        ? currentIndex + 1
-        : 0;
 
-    modalImg.src = currentGallery[currentIndex];
+    currentIndex =
+        (currentIndex < currentGallery.length - 1)
+            ? currentIndex + 1
+            : 0;
+
+
+    modalImg.src =
+        currentGallery[currentIndex];
+
 };
 
-prevBtn.addEventListener("click", showPrev);
-nextBtn.addEventListener("click", showNext);
+
+prevBtn.addEventListener(
+    "click",
+    showPrev
+);
+
+nextBtn.addEventListener(
+    "click",
+    showNext
+);
+
 
 
 // ==========================================
-// 2. LÓGICA DEL MENÚ DE NAVEGACIÓN
+// 2. LÓGICA DEL MENÚ
 // ==========================================
-const menuIcon = document.getElementById("menu-icon");
-const menuSidebar = document.getElementById("menu-sidebar");
-const menuOverlay = document.getElementById("menu-overlay");
-const closeMenuBtn = document.getElementById("close-menu");
 
-const linkAll = document.getElementById("link-all");
-const linkCatalogView = document.getElementById("link-catalog-view");
-const linkCustom = document.getElementById("link-custom");
-const linkSeasonal = document.getElementById("link-seasonal");
+const menuIcon =
+    document.getElementById("menu-icon");
 
-const homeView = document.getElementById("home-view");
-const catalogView = document.getElementById("catalog-view");
-const customView = document.getElementById("custom-view");
-const fullCatalogGrid = document.getElementById("full-catalog-grid");
+const menuSidebar =
+    document.getElementById("menu-sidebar");
 
-const headerTitle = document.getElementById("header-title");
-const headerSubtitle = document.getElementById("header-subtitle");
+const menuOverlay =
+    document.getElementById("menu-overlay");
+
+const closeMenuBtn =
+    document.getElementById("close-menu");
+
+
+const linkAll =
+    document.getElementById("link-all");
+
+const linkCatalogView =
+    document.getElementById("link-catalog-view");
+
+const linkCustom =
+    document.getElementById("link-custom");
+
+const linkSeasonal =
+    document.getElementById("link-seasonal");
+
+
+const homeView =
+    document.getElementById("home-view");
+
+const catalogView =
+    document.getElementById("catalog-view");
+
+const customView =
+    document.getElementById("custom-view");
+
+const fullCatalogGrid =
+    document.getElementById("full-catalog-grid");
+
 
 
 // Abrir menú
 const openMenu = () => {
+
     menuSidebar.classList.add("open");
+
     menuOverlay.classList.add("open");
+
 };
 
 
 // Cerrar menú
 const closeMenu = () => {
+
     menuSidebar.classList.remove("open");
+
     menuOverlay.classList.remove("open");
+
 };
 
 
-menuIcon.addEventListener("click", openMenu);
-closeMenuBtn.addEventListener("click", closeMenu);
-menuOverlay.addEventListener("click", closeMenu);
+menuIcon.addEventListener(
+    "click",
+    openMenu
+);
+
+closeMenuBtn.addEventListener(
+    "click",
+    closeMenu
+);
+
+menuOverlay.addEventListener(
+    "click",
+    closeMenu
+);
 
 
-// Activar opción del menú
+
+// ==========================================
+// ACTIVAR OPCIÓN DEL MENÚ
+// ==========================================
+
 const setActiveLink = (activeLink) => {
+
     [
+
         linkAll,
         linkCatalogView,
         linkCustom,
         linkSeasonal
+
     ].forEach(link => {
+
         link.classList.remove("active");
+
     });
 
+
     activeLink.classList.add("active");
+
     closeMenu();
+
 };
 
 
-// Ocultar todas las vistas
+
+// ==========================================
+// OCULTAR TODAS LAS VISTAS
+// ==========================================
+
 const hideAllViews = () => {
+
     homeView.classList.add("hidden");
+
     catalogView.classList.add("hidden");
+
     customView.classList.add("hidden");
+
 };
+
 
 
 // ==========================================
 // OPCIÓN 1: INICIO / HISTORIA
 // ==========================================
+
 linkAll.addEventListener("click", (e) => {
+
     e.preventDefault();
+
 
     setActiveLink(linkAll);
 
-    headerTitle.innerText = "Velas Sam";
-    headerSubtitle.innerText = "ILUMINA TU ALMA, ENCUENTRA TU PAZ";
 
     hideAllViews();
 
+
     homeView.classList.remove("hidden");
 
+
     window.scrollTo({
+
         top: 0,
+
         behavior: "smooth"
+
     });
+
 });
+
 
 
 // ==========================================
@@ -150,157 +282,216 @@ linkAll.addEventListener("click", (e) => {
 // Esta función sirve para abrir el catálogo completo.
 // Se utiliza tanto desde el menú como desde el texto
 // "Desliza para explorar nuestro catálogo completo".
+
 const openCatalog = (e) => {
 
+
     if (e) {
+
         e.preventDefault();
+
     }
+
 
     // Activar "Catálogo Completo"
     setActiveLink(linkCatalogView);
 
-    // Cambiar encabezado
-    headerTitle.innerText = "Catálogo Exclusivo";
-    headerSubtitle.innerText = "DESCUBRE TODOS NUESTROS AROMAS";
 
     // Ocultar las demás vistas
     hideAllViews();
 
+
     // Mostrar catálogo
     catalogView.classList.remove("hidden");
+
 
 
     // ==========================================
     // CARGAR LOS PRODUCTOS
     // ==========================================
 
-    // Si todavía no se han cargado los productos,
-    // los copiamos desde el carrusel.
-    if (fullCatalogGrid.children.length === 0) {
+    if (
+        fullCatalogGrid.children.length === 0
+    ) {
 
-        const items = document.querySelectorAll(
-            ".horizontal-carousel .candle-item"
-        );
+
+        const items =
+            document.querySelectorAll(
+                ".horizontal-carousel .candle-item"
+            );
+
 
         items.forEach(item => {
 
-            const clonedItem = item.cloneNode(true);
 
-            fullCatalogGrid.appendChild(clonedItem);
+            const clonedItem =
+                item.cloneNode(true);
+
+
+            fullCatalogGrid.appendChild(
+                clonedItem
+            );
+
 
         });
+
     }
+
 
 
     // ==========================================
     // MOSTRAR TODOS LOS PRODUCTOS
     // ==========================================
 
-    // Esto es importante porque "De temporada"
-    // puede ocultar algunos productos.
     const gridItems =
-        fullCatalogGrid.querySelectorAll(".candle-item");
+        fullCatalogGrid.querySelectorAll(
+            ".candle-item"
+        );
+
 
     gridItems.forEach(item => {
+
         item.style.display = "block";
+
     });
 
 
-    // Regresar al inicio de la página
+
+    // Regresar al inicio
     window.scrollTo({
+
         top: 0,
+
         behavior: "smooth"
+
     });
+
 };
+
 
 
 // ==========================================
 // CATÁLOGO DESDE EL MENÚ
 // ==========================================
-linkCatalogView.addEventListener("click", openCatalog);
+
+linkCatalogView.addEventListener(
+    "click",
+    openCatalog
+);
+
 
 
 // ==========================================
 // CATÁLOGO DESDE EL TEXTO/BOTÓN
 // ==========================================
 
-// Buscamos el texto que agregamos en index.html.
-const catalogLink = document.getElementById("catalog-link");
+const catalogLink =
+    document.getElementById("catalog-link");
 
 
-// Si existe, hacemos que sea clickeable.
 if (catalogLink) {
 
-    catalogLink.addEventListener("click", openCatalog);
+    catalogLink.addEventListener(
+        "click",
+        openCatalog
+    );
 
 }
+
 
 
 // ==========================================
 // OPCIÓN 3: PERSONALIZAR
 // ==========================================
+
 linkCustom.addEventListener("click", (e) => {
 
     e.preventDefault();
 
+
     setActiveLink(linkCustom);
 
-    headerTitle.innerText = "Vela Personalizada";
-    headerSubtitle.innerText = "CREA TU COMBINACIÓN PERFECTA";
 
     hideAllViews();
 
+
     customView.classList.remove("hidden");
 
+
     window.scrollTo({
+
         top: 0,
+
         behavior: "smooth"
+
     });
+
 });
+
 
 
 // ==========================================
 // OPCIÓN 4: DE TEMPORADA
 // ==========================================
+
 linkSeasonal.addEventListener("click", (e) => {
 
     e.preventDefault();
 
+
     setActiveLink(linkSeasonal);
 
-    headerTitle.innerText = "Colección de Temporada";
-    headerSubtitle.innerText = "LO MÁS DESTACADO DEL MOMENTO";
 
     hideAllViews();
+
 
     catalogView.classList.remove("hidden");
 
 
-    // Si todavía no existen productos en el catálogo,
-    // los copiamos desde el carrusel.
-    if (fullCatalogGrid.children.length === 0) {
 
-        const items = document.querySelectorAll(
-            ".horizontal-carousel .candle-item"
-        );
+    // Si todavía no existen productos
+    // en el catálogo, los copiamos.
+
+    if (
+        fullCatalogGrid.children.length === 0
+    ) {
+
+
+        const items =
+            document.querySelectorAll(
+                ".horizontal-carousel .candle-item"
+            );
+
 
         items.forEach(item => {
+
 
             fullCatalogGrid.appendChild(
                 item.cloneNode(true)
             );
 
+
         });
+
     }
 
 
-    // Mostrar únicamente productos de temporada
+
+    // Mostrar únicamente productos
+    // de temporada
+
     const gridItems =
-        fullCatalogGrid.querySelectorAll(".candle-item");
+        fullCatalogGrid.querySelectorAll(
+            ".candle-item"
+        );
+
 
     gridItems.forEach(item => {
 
-        if (item.dataset.seasonal === "true") {
+
+        if (
+            item.dataset.seasonal === "true"
+        ) {
 
             item.style.display = "block";
 
@@ -313,93 +504,176 @@ linkSeasonal.addEventListener("click", (e) => {
     });
 
 
+
     window.scrollTo({
+
         top: 0,
+
         behavior: "smooth"
+
     });
+
 });
 
 
+
 // ==========================================
-// 3. LÓGICA DEL CARRITO DE COMPRAS
+// 3. LÓGICA DEL CARRITO
 // ==========================================
+
 let cart = [];
 
-const cartIcon = document.getElementById("cart-icon");
-const cartSidebar = document.getElementById("cart-sidebar");
-const cartOverlay = document.getElementById("cart-overlay");
-const closeCartBtn = document.getElementById("close-cart");
+
+const cartIcon =
+    document.getElementById("cart-icon");
+
+const cartSidebar =
+    document.getElementById("cart-sidebar");
+
+const cartOverlay =
+    document.getElementById("cart-overlay");
+
+const closeCartBtn =
+    document.getElementById("close-cart");
+
 const cartItemsContainer =
-    document.getElementById("cart-items-container");
+    document.getElementById(
+        "cart-items-container"
+    );
 
 const cartCountElement =
-    document.getElementById("cart-count");
+    document.getElementById(
+        "cart-count"
+    );
 
 const cartTotalPriceElement =
-    document.getElementById("cart-total-price");
+    document.getElementById(
+        "cart-total-price"
+    );
 
 
-// Abrir carrito
+
+// ==========================================
+// ABRIR CARRITO
+// ==========================================
+
 const openCart = () => {
 
     cartSidebar.classList.add("open");
+
     cartOverlay.classList.add("open");
 
 };
 
 
-// Cerrar carrito
+
+// ==========================================
+// CERRAR CARRITO
+// ==========================================
+
 const closeCart = () => {
 
     cartSidebar.classList.remove("open");
+
     cartOverlay.classList.remove("open");
 
 };
 
 
-cartIcon.addEventListener("click", openCart);
-closeCartBtn.addEventListener("click", closeCart);
-cartOverlay.addEventListener("click", closeCart);
+cartIcon.addEventListener(
+    "click",
+    openCart
+);
+
+closeCartBtn.addEventListener(
+    "click",
+    closeCart
+);
+
+cartOverlay.addEventListener(
+    "click",
+    closeCart
+);
+
 
 
 // ==========================================
 // AGREGAR PRODUCTOS AL CARRITO
 // ==========================================
+
 document.addEventListener("click", (e) => {
 
+
     if (
-        e.target.classList.contains("add-btn") &&
-        !e.target.closest("#custom-candle-form")
+
+        e.target.classList.contains("add-btn")
+
+        &&
+
+        !e.target.closest(
+            "#custom-candle-form"
+        )
+
     ) {
 
+
         const candleItem =
-            e.target.closest(".candle-item");
+            e.target.closest(
+                ".candle-item"
+            );
+
 
         if (!candleItem) return;
 
 
-        const id = candleItem.dataset.id;
-        const name = candleItem.dataset.name;
+
+        const id =
+            candleItem.dataset.id;
+
+        const name =
+            candleItem.dataset.name;
+
 
         const basePrice =
-            parseFloat(candleItem.dataset.price);
-
-        const wholesalePrice =
-            parseFloat(candleItem.dataset.wholesale);
-
-        const inputQty =
-            parseInt(
-                candleItem.querySelector(".qty-input").value
+            parseFloat(
+                candleItem.dataset.price
             );
 
 
-        if (inputQty <= 0 || isNaN(inputQty)) {
+        const wholesalePrice =
+            parseFloat(
+                candleItem.dataset.wholesale
+            );
+
+
+        const inputQty =
+            parseInt(
+                candleItem
+                    .querySelector(
+                        ".qty-input"
+                    )
+                    .value
+            );
+
+
+
+        if (
+            inputQty <= 0
+            ||
+            isNaN(inputQty)
+        ) {
+
             return;
+
         }
 
 
+
         const existingItem =
-            cart.find(item => item.id === id);
+            cart.find(
+                item => item.id === id
+            );
+
 
 
         if (existingItem) {
@@ -409,25 +683,42 @@ document.addEventListener("click", (e) => {
         } else {
 
             cart.push({
+
                 id,
+
                 name,
+
                 basePrice,
+
                 wholesalePrice,
+
                 qty: inputQty,
+
                 isCustom: false
+
             });
 
         }
 
 
+
         // Regresar cantidad a 1
-        candleItem.querySelector(".qty-input").value = 1;
+
+        candleItem
+            .querySelector(
+                ".qty-input"
+            )
+            .value = 1;
+
 
 
         // Actualizar carrito
+
         updateCartUI();
 
+
         // Abrir carrito
+
         openCart();
 
     }
@@ -435,117 +726,169 @@ document.addEventListener("click", (e) => {
 });
 
 
+
 // ==========================================
 // AGREGAR VELA PERSONALIZADA
 // ==========================================
+
 const customForm =
-    document.getElementById("custom-candle-form");
+    document.getElementById(
+        "custom-candle-form"
+    );
 
 
-customForm.addEventListener("submit", (e) => {
+customForm.addEventListener(
+    "submit",
+    (e) => {
 
-    e.preventDefault();
-
-
-    const shape =
-        document.getElementById("custom-shape").value;
-
-    const color =
-        document.getElementById("custom-color").value;
-
-    const scent =
-        document.getElementById("custom-scent").value;
-
-    const qty =
-        parseInt(
-            document.getElementById("custom-qty").value
-        );
+        e.preventDefault();
 
 
-    const customId =
-        `custom-${shape}-${color}-${scent}`
-        .toLowerCase()
-        .replace(/\s+/g, "-");
+
+        const shape =
+            document.getElementById(
+                "custom-shape"
+            ).value;
 
 
-    const customName =
-        `Vela ${shape} (${color}, ${scent})`;
+        const color =
+            document.getElementById(
+                "custom-color"
+            ).value;
 
 
-    const existingItem =
-        cart.find(item => item.id === customId);
+        const scent =
+            document.getElementById(
+                "custom-scent"
+            ).value;
 
 
-    if (existingItem) {
+        const qty =
+            parseInt(
+                document.getElementById(
+                    "custom-qty"
+                ).value
+            );
 
-        existingItem.qty += qty;
 
-    } else {
 
-        cart.push({
+        const customId =
 
-            id: customId,
+            `custom-${shape}-${color}-${scent}`
 
-            name: customName,
+                .toLowerCase()
 
-            basePrice: 180,
+                .replace(
+                    /\s+/g,
+                    "-"
+                );
 
-            wholesalePrice: 140,
 
-            qty: qty,
 
-            isCustom: true
+        const customName =
+            `Vela ${shape} (${color}, ${scent})`;
 
-        });
+
+
+        const existingItem =
+            cart.find(
+                item => item.id === customId
+            );
+
+
+
+        if (existingItem) {
+
+            existingItem.qty += qty;
+
+        } else {
+
+            cart.push({
+
+                id: customId,
+
+                name: customName,
+
+                basePrice: 180,
+
+                wholesalePrice: 140,
+
+                qty: qty,
+
+                isCustom: true
+
+            });
+
+        }
+
+
+
+        updateCartUI();
+
+
+        openCart();
 
     }
+);
 
-
-    updateCartUI();
-
-    openCart();
-
-});
 
 
 // ==========================================
 // ACTUALIZAR INTERFAZ DEL CARRITO
 // ==========================================
+
 const updateCartUI = () => {
+
 
     cartItemsContainer.innerHTML = "";
 
+
     let totalItems = 0;
+
     let totalPrice = 0;
 
 
+
     // Carrito vacío
+
     if (cart.length === 0) {
 
+
         cartItemsContainer.innerHTML =
+
             '<p class="empty-cart-msg">Tu carrito está vacío.</p>';
+
 
     } else {
 
 
         // Recorrer productos
+
         cart.forEach((item) => {
 
 
             // Mayoreo a partir de 10 piezas
+
             let currentPrice =
+
                 (item.qty >= 10)
+
                     ? item.wholesalePrice
+
                     : item.basePrice;
 
 
+
             let itemTotal =
+
                 currentPrice * item.qty;
+
 
 
             totalItems += item.qty;
 
             totalPrice += itemTotal;
+
 
 
             const itemHTML = `
@@ -554,16 +897,26 @@ const updateCartUI = () => {
 
                     <div class="cart-item-info">
 
-                        <h4>${item.name}</h4>
+                        <h4>
+                            ${item.name}
+                        </h4>
 
                         <div class="cart-item-price">
 
                             $${currentPrice.toFixed(2)} c/u
 
                             ${
+
                                 item.qty >= 10
-                                ? '<br><span class="cart-wholesale-note">¡Precio de mayoreo aplicado!</span>'
-                                : ''
+
+                                ?
+
+                                '<br><span class="cart-wholesale-note">¡Precio de mayoreo aplicado!</span>'
+
+                                :
+
+                                ''
+
                             }
 
                         </div>
@@ -581,7 +934,9 @@ const updateCartUI = () => {
                         </button>
 
 
-                        <span>${item.qty}</span>
+                        <span>
+                            ${item.qty}
+                        </span>
 
 
                         <button
@@ -607,8 +962,11 @@ const updateCartUI = () => {
 
 
             cartItemsContainer.insertAdjacentHTML(
+
                 "beforeend",
+
                 itemHTML
+
             );
 
         });
@@ -616,140 +974,199 @@ const updateCartUI = () => {
     }
 
 
+
     // Actualizar contador
-    cartCountElement.innerText = totalItems;
+
+    cartCountElement.innerText =
+        totalItems;
+
 
 
     // Actualizar total
+
     cartTotalPriceElement.innerText =
         totalPrice.toFixed(2);
 
 };
 
 
+
 // ==========================================
 // CAMBIAR CANTIDAD
 // ==========================================
-window.changeQty = (id, amount) => {
 
-    const item =
-        cart.find(i => i.id === id);
-
-
-    if (item) {
-
-        item.qty += amount;
+window.changeQty =
+    (id, amount) => {
 
 
-        if (item.qty <= 0) {
+        const item =
+            cart.find(
+                i => i.id === id
+            );
 
-            removeItem(id);
 
-        } else {
+        if (item) {
 
-            updateCartUI();
+
+            item.qty += amount;
+
+
+
+            if (item.qty <= 0) {
+
+                removeItem(id);
+
+            } else {
+
+                updateCartUI();
+
+            }
 
         }
 
-    }
+    };
 
-};
 
 
 // ==========================================
 // ELIMINAR PRODUCTO
 // ==========================================
-window.removeItem = (id) => {
 
-    cart =
-        cart.filter(item => item.id !== id);
+window.removeItem =
+    (id) => {
 
-    updateCartUI();
 
-};
+        cart =
+            cart.filter(
+                item => item.id !== id
+            );
+
+
+        updateCartUI();
+
+    };
+
 
 
 // ==========================================
 // 4. ENVIAR PEDIDO POR WHATSAPP
 // ==========================================
+
 const checkoutBtn =
-    document.querySelector(".checkout-btn");
+    document.querySelector(
+        ".checkout-btn"
+    );
 
 
-checkoutBtn.addEventListener("click", () => {
+checkoutBtn.addEventListener(
+    "click",
+    () => {
 
 
-    // Verificar carrito vacío
-    if (cart.length === 0) {
+        // Verificar carrito vacío
 
-        alert(
-            "Tu carrito está vacío. Agrega algunas velas primero."
-        );
-
-        return;
-    }
+        if (cart.length === 0) {
 
 
-    const telefono =
-        "524778577491";
+            alert(
+                "Tu carrito está vacío. Agrega algunas velas primero."
+            );
 
 
-    let mensaje =
-        "Hola *Velas Sam* 🕯️, me gustaría realizar el siguiente pedido:\n\n";
-
-
-    let totalPrecio = 0;
-
-
-    cart.forEach(item => {
-
-
-        // Precio según cantidad
-        let currentPrice =
-            (item.qty >= 10)
-                ? item.wholesalePrice
-                : item.basePrice;
-
-
-        let subtotal =
-            currentPrice * item.qty;
-
-
-        totalPrecio += subtotal;
-
-
-        // Producto personalizado
-        if (item.isCustom) {
-
-            mensaje +=
-                `▪️ *[PEDIDO PERSONALIZADO]* ${item.qty}x ${item.name} ($${currentPrice} c/u) = $${subtotal}\n`;
-
-        } else {
-
-            mensaje +=
-                `▪️ ${item.qty}x ${item.name} ($${currentPrice} c/u) = $${subtotal}\n`;
+            return;
 
         }
 
-    });
 
 
-    mensaje +=
-        `\n*Total a pagar: $${totalPrecio.toFixed(2)}*\n\n`;
+        const telefono =
+            "524778577491";
 
 
-    mensaje +=
-        "Quedo a la espera de confirmación y métodos de pago. ¡Gracias!";
+
+        let mensaje =
+            "Hola *Velas Sam* 🕯️, me gustaría realizar el siguiente pedido:\n\n";
 
 
-    const mensajeCodificado =
-        encodeURIComponent(mensaje);
+        let totalPrecio = 0;
 
 
-    const url =
-        `https://wa.me/${telefono}?text=${mensajeCodificado}`;
+
+        cart.forEach(item => {
 
 
-    window.open(url, "_blank");
+            // Precio según cantidad
 
-});
+            let currentPrice =
+
+                (item.qty >= 10)
+
+                    ? item.wholesalePrice
+
+                    : item.basePrice;
+
+
+
+            let subtotal =
+                currentPrice * item.qty;
+
+
+            totalPrecio += subtotal;
+
+
+
+            // Producto personalizado
+
+            if (item.isCustom) {
+
+
+                mensaje +=
+
+                    `▪️ *[PEDIDO PERSONALIZADO]* ${item.qty}x ${item.name} ($${currentPrice} c/u) = $${subtotal}\n`;
+
+
+            } else {
+
+
+                mensaje +=
+
+                    `▪️ ${item.qty}x ${item.name} ($${currentPrice} c/u) = $${subtotal}\n`;
+
+            }
+
+        });
+
+
+
+        mensaje +=
+
+            `\n*Total a pagar: $${totalPrecio.toFixed(2)}*\n\n`;
+
+
+
+        mensaje +=
+
+            "Quedo a la espera de confirmación y métodos de pago. ¡Gracias!";
+
+
+
+        const mensajeCodificado =
+            encodeURIComponent(
+                mensaje
+            );
+
+
+
+        const url =
+
+            `https://wa.me/${telefono}?text=${mensajeCodificado}`;
+
+
+
+        window.open(
+            url,
+            "_blank"
+        );
+
+    }
+);
