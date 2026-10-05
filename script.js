@@ -1,5 +1,12 @@
 // ==========================================
-// 1. CARRUSEL / GALERÍA DE IMÁGENES
+// LUMINA
+// JAVASCRIPT PRINCIPAL
+// ==========================================
+
+
+
+// ==========================================
+// 1. GALERÍA DE PRODUCTOS
 // ==========================================
 
 const modal =
@@ -24,16 +31,18 @@ let currentIndex = 0;
 
 
 
-// Abrir galería
-
 document.addEventListener("click", (e) => {
 
     if (
-        e.target.classList.contains("gallery-img")
+        e.target.classList.contains(
+            "gallery-img"
+        )
     ) {
 
         const galleryData =
-            e.target.getAttribute("data-gallery");
+            e.target.getAttribute(
+                "data-gallery"
+            );
 
 
         if (galleryData) {
@@ -56,8 +65,6 @@ document.addEventListener("click", (e) => {
 
 
 
-// Cerrar modal
-
 const closeModal = () => {
 
     modal.style.display = "none";
@@ -75,7 +82,9 @@ modal.addEventListener(
     "click",
     (event) => {
 
-        if (event.target === modal) {
+        if (
+            event.target === modal
+        ) {
 
             closeModal();
 
@@ -86,9 +95,14 @@ modal.addEventListener(
 
 
 
-// Imagen anterior
-
 const showPrev = () => {
+
+    if (
+        currentGallery.length === 0
+    ) {
+        return;
+    }
+
 
     currentIndex =
         currentIndex > 0
@@ -102,16 +116,14 @@ const showPrev = () => {
 };
 
 
-prevBtn.addEventListener(
-    "click",
-    showPrev
-);
-
-
-
-// Imagen siguiente
-
 const showNext = () => {
+
+    if (
+        currentGallery.length === 0
+    ) {
+        return;
+    }
+
 
     currentIndex =
         currentIndex <
@@ -126,6 +138,11 @@ const showNext = () => {
 };
 
 
+prevBtn.addEventListener(
+    "click",
+    showPrev
+);
+
 nextBtn.addEventListener(
     "click",
     showNext
@@ -134,24 +151,34 @@ nextBtn.addEventListener(
 
 
 // ==========================================
-// 2. MENÚ DE NAVEGACIÓN
+// 2. MENÚ
 // ==========================================
 
 const menuIcon =
-    document.getElementById("menu-icon");
+    document.getElementById(
+        "menu-icon"
+    );
 
 const menuSidebar =
-    document.getElementById("menu-sidebar");
+    document.getElementById(
+        "menu-sidebar"
+    );
 
 const menuOverlay =
-    document.getElementById("menu-overlay");
+    document.getElementById(
+        "menu-overlay"
+    );
 
 const closeMenuBtn =
-    document.getElementById("close-menu");
+    document.getElementById(
+        "close-menu"
+    );
 
 
 const linkAll =
-    document.getElementById("link-all");
+    document.getElementById(
+        "link-all"
+    );
 
 const linkCatalogView =
     document.getElementById(
@@ -191,19 +218,18 @@ const fullCatalogGrid =
 
 
 
-// Abrir menú
-
 const openMenu = () => {
 
-    menuSidebar.classList.add("open");
+    menuSidebar.classList.add(
+        "open"
+    );
 
-    menuOverlay.classList.add("open");
+    menuOverlay.classList.add(
+        "open"
+    );
 
 };
 
-
-
-// Cerrar menú
 
 const closeMenu = () => {
 
@@ -236,35 +262,34 @@ menuOverlay.addEventListener(
 
 
 // ==========================================
-// ACTIVAR OPCIÓN DEL MENÚ
+// ACTIVAR OPCIÓN
 // ==========================================
 
-const setActiveLink =
-    (activeLink) => {
+const setActiveLink = (
+    activeLink
+) => {
 
-        [
-            linkAll,
-            linkCatalogView,
-            linkCustom,
-            linkSeasonal
+    [
+        linkAll,
+        linkCatalogView,
+        linkCustom,
+        linkSeasonal
+    ].forEach(link => {
 
-        ].forEach(link => {
-
-            link.classList.remove(
-                "active"
-            );
-
-        });
-
-
-        activeLink.classList.add(
+        link.classList.remove(
             "active"
         );
 
+    });
 
-        closeMenu();
 
-    };
+    activeLink.classList.add(
+        "active"
+    );
+
+    closeMenu();
+
+};
 
 
 
@@ -291,7 +316,7 @@ const hideAllViews = () => {
 
 
 // ==========================================
-// INICIO / HISTORIA
+// INICIO
 // ==========================================
 
 linkAll.addEventListener(
@@ -300,7 +325,9 @@ linkAll.addEventListener(
 
         e.preventDefault();
 
-        setActiveLink(linkAll);
+        setActiveLink(
+            linkAll
+        );
 
         hideAllViews();
 
@@ -309,11 +336,8 @@ linkAll.addEventListener(
         );
 
         window.scrollTo({
-
             top: 0,
-
             behavior: "smooth"
-
         });
 
     }
@@ -328,9 +352,7 @@ linkAll.addEventListener(
 const openCatalog = (e) => {
 
     if (e) {
-
         e.preventDefault();
-
     }
 
 
@@ -347,12 +369,11 @@ const openCatalog = (e) => {
     );
 
 
-
-    // Cargar productos
+    // Copiar productos solamente
+    // la primera vez
 
     if (
-        fullCatalogGrid.children
-            .length === 0
+        fullCatalogGrid.children.length === 0
     ) {
 
         const items =
@@ -366,7 +387,6 @@ const openCatalog = (e) => {
             const clonedItem =
                 item.cloneNode(true);
 
-
             fullCatalogGrid.appendChild(
                 clonedItem
             );
@@ -376,9 +396,6 @@ const openCatalog = (e) => {
     }
 
 
-
-    // Mostrar todos los productos
-
     const gridItems =
         fullCatalogGrid.querySelectorAll(
             ".candle-item"
@@ -387,25 +404,19 @@ const openCatalog = (e) => {
 
     gridItems.forEach(item => {
 
-        item.style.display = "block";
+        item.style.display =
+            "block";
 
     });
 
 
-
     window.scrollTo({
-
         top: 0,
-
         behavior: "smooth"
-
     });
 
 };
 
-
-
-// Catálogo desde menú
 
 linkCatalogView.addEventListener(
     "click",
@@ -414,7 +425,9 @@ linkCatalogView.addEventListener(
 
 
 
-// Catálogo desde botón/texto
+// ==========================================
+// CATÁLOGO DESDE EL TEXTO
+// ==========================================
 
 const catalogLink =
     document.getElementById(
@@ -454,11 +467,8 @@ linkCustom.addEventListener(
         );
 
         window.scrollTo({
-
             top: 0,
-
             behavior: "smooth"
-
         });
 
     }
@@ -487,12 +497,8 @@ linkSeasonal.addEventListener(
         );
 
 
-
-        // Cargar productos
-
         if (
-            fullCatalogGrid.children
-                .length === 0
+            fullCatalogGrid.children.length === 0
         ) {
 
             const items =
@@ -511,10 +517,6 @@ linkSeasonal.addEventListener(
 
         }
 
-
-
-        // Mostrar solamente productos
-        // de temporada
 
         const gridItems =
             fullCatalogGrid.querySelectorAll(
@@ -542,13 +544,9 @@ linkSeasonal.addEventListener(
         });
 
 
-
         window.scrollTo({
-
             top: 0,
-
             behavior: "smooth"
-
         });
 
     }
@@ -557,7 +555,7 @@ linkSeasonal.addEventListener(
 
 
 // ==========================================
-// 3. CARRITO DE COMPRAS
+// 3. CARRITO
 // ==========================================
 
 let cart = [];
@@ -600,10 +598,6 @@ const cartTotalPriceElement =
 
 
 
-// ==========================================
-// ABRIR CARRITO
-// ==========================================
-
 const openCart = () => {
 
     cartSidebar.classList.add(
@@ -616,11 +610,6 @@ const openCart = () => {
 
 };
 
-
-
-// ==========================================
-// CERRAR CARRITO
-// ==========================================
 
 const closeCart = () => {
 
@@ -661,17 +650,12 @@ document.addEventListener(
     (e) => {
 
         if (
-
             e.target.classList.contains(
                 "add-btn"
-            )
-
-            &&
-
+            ) &&
             !e.target.closest(
                 "#custom-candle-form"
             )
-
         ) {
 
 
@@ -681,8 +665,9 @@ document.addEventListener(
                 );
 
 
-            if (!candleItem) return;
-
+            if (!candleItem) {
+                return;
+            }
 
 
             const id =
@@ -691,12 +676,10 @@ document.addEventListener(
             const name =
                 candleItem.dataset.name;
 
-
             const basePrice =
                 parseFloat(
                     candleItem.dataset.price
                 );
-
 
             const wholesalePrice =
                 parseFloat(
@@ -704,7 +687,7 @@ document.addEventListener(
                 );
 
 
-            const input =
+            const qtyInput =
                 candleItem.querySelector(
                     ".qty-input"
                 );
@@ -712,9 +695,8 @@ document.addEventListener(
 
             const inputQty =
                 parseInt(
-                    input.value
+                    qtyInput.value
                 );
-
 
 
             if (
@@ -727,13 +709,11 @@ document.addEventListener(
             }
 
 
-
             const existingItem =
                 cart.find(
                     item =>
                         item.id === id
                 );
-
 
 
             if (existingItem) {
@@ -764,12 +744,10 @@ document.addEventListener(
             }
 
 
-
-            input.value = 1;
+            qtyInput.value = 1;
 
 
             updateCartUI();
-
 
             openCart();
 
@@ -790,116 +768,95 @@ const customForm =
     );
 
 
-customForm.addEventListener(
-    "submit",
-    (e) => {
+if (customForm) {
 
-        e.preventDefault();
+    customForm.addEventListener(
+        "submit",
+        (e) => {
 
-
-        const shape =
-            document.getElementById(
-                "custom-shape"
-            ).value;
+            e.preventDefault();
 
 
-        const color =
-            document.getElementById(
-                "custom-color"
-            ).value;
-
-
-        const scent =
-            document.getElementById(
-                "custom-scent"
-            ).value;
-
-
-        const qty =
-            parseInt(
+            const shape =
                 document.getElementById(
-                    "custom-qty"
-                ).value
-            );
+                    "custom-shape"
+                ).value;
 
 
-
-        if (
-            isNaN(qty) ||
-            qty <= 0
-        ) {
-
-            return;
-
-        }
+            const color =
+                document.getElementById(
+                    "custom-color"
+                ).value;
 
 
+            const scent =
+                document.getElementById(
+                    "custom-scent"
+                ).value;
 
-        const customId =
 
-            `custom-${shape}-${color}-${scent}`
-
-                .toLowerCase()
-
-                .replace(
-                    /\s+/g,
-                    "-"
+            const qty =
+                parseInt(
+                    document.getElementById(
+                        "custom-qty"
+                    ).value
                 );
 
 
-
-        const customName =
-
-            `Vela ${shape} (${color}, ${scent})`;
-
-
-
-        const existingItem =
-            cart.find(
-                item =>
-                    item.id === customId
-            );
+            const customId =
+                `custom-${shape}-${color}-${scent}`
+                    .toLowerCase()
+                    .replace(
+                        /\s+/g,
+                        "-"
+                    );
 
 
+            const customName =
+                `Vela ${shape} (${color}, ${scent})`;
 
-        if (existingItem) {
 
-            existingItem.qty += qty;
+            const existingItem =
+                cart.find(
+                    item =>
+                        item.id === customId
+                );
 
-        } else {
 
-            cart.push({
+            if (existingItem) {
 
-                id:
-                    customId,
+                existingItem.qty +=
+                    qty;
 
-                name:
-                    customName,
+            } else {
 
-                basePrice:
-                    180,
+                cart.push({
 
-                wholesalePrice:
-                    140,
+                    id: customId,
 
-                qty:
-                    qty,
+                    name: customName,
 
-                isCustom:
-                    true
+                    basePrice: 180,
 
-            });
+                    wholesalePrice: 140,
+
+                    qty: qty,
+
+                    isCustom: true
+
+                });
+
+            }
+
+
+            updateCartUI();
+
+            openCart();
 
         }
+    );
 
-
-
-        updateCartUI();
-
-        openCart();
-
-    }
-);
+}
 
 
 
@@ -908,7 +865,6 @@ customForm.addEventListener(
 // ==========================================
 
 const updateCartUI = () => {
-
 
     cartItemsContainer.innerHTML =
         "";
@@ -919,36 +875,30 @@ const updateCartUI = () => {
     let totalPrice = 0;
 
 
-
-    if (cart.length === 0) {
-
+    if (
+        cart.length === 0
+    ) {
 
         cartItemsContainer.innerHTML =
-
-            `<p class="empty-cart-msg">
+            `
+            <p class="empty-cart-msg">
                 Tu carrito está vacío.
-            </p>`;
+            </p>
+            `;
 
-    }
-
-
-    else {
+    } else {
 
 
         cart.forEach(item => {
 
 
             const currentPrice =
-
                 item.qty >= 10
-
                     ? item.wholesalePrice
-
                     : item.basePrice;
 
 
             const itemTotal =
-
                 currentPrice *
                 item.qty;
 
@@ -956,23 +906,19 @@ const updateCartUI = () => {
             totalItems +=
                 item.qty;
 
-
             totalPrice +=
                 itemTotal;
-
 
 
             const itemHTML = `
 
                 <div class="cart-item">
 
-
                     <div class="cart-item-info">
 
                         <h4>
                             ${item.name}
                         </h4>
-
 
                         <div class="cart-item-price">
 
@@ -981,16 +927,17 @@ const updateCartUI = () => {
 
                             ${
                                 item.qty >= 10
-
                                 ?
+                                `
+                                <br>
 
-                                `<br>
                                 <span class="cart-wholesale-note">
+
                                     ¡Precio de mayoreo aplicado!
-                                </span>`
 
+                                </span>
+                                `
                                 :
-
                                 ""
                             }
 
@@ -999,9 +946,7 @@ const updateCartUI = () => {
                     </div>
 
 
-
                     <div class="cart-item-controls">
-
 
                         <button
                             class="qty-btn"
@@ -1034,9 +979,7 @@ const updateCartUI = () => {
 
                         </button>
 
-
                     </div>
-
 
                 </div>
 
@@ -1051,7 +994,6 @@ const updateCartUI = () => {
         });
 
     }
-
 
 
     cartCountElement.innerText =
@@ -1072,28 +1014,31 @@ const updateCartUI = () => {
 window.changeQty =
     (id, amount) => {
 
-
         const item =
             cart.find(
-                i => i.id === id
+                i =>
+                    i.id === id
             );
 
 
-        if (item) {
+        if (!item) {
+            return;
+        }
 
 
-            item.qty += amount;
+        item.qty +=
+            amount;
 
 
-            if (item.qty <= 0) {
+        if (
+            item.qty <= 0
+        ) {
 
-                removeItem(id);
+            removeItem(id);
 
-            } else {
+        } else {
 
-                updateCartUI();
-
-            }
+            updateCartUI();
 
         }
 
@@ -1122,7 +1067,7 @@ window.removeItem =
 
 
 // ==========================================
-// 4. PEDIDO POR WHATSAPP
+// 4. WHATSAPP
 // ==========================================
 
 const checkoutBtn =
@@ -1136,7 +1081,9 @@ checkoutBtn.addEventListener(
     () => {
 
 
-        if (cart.length === 0) {
+        if (
+            cart.length === 0
+        ) {
 
             alert(
                 "Tu carrito está vacío. Agrega algunas velas primero."
@@ -1147,35 +1094,27 @@ checkoutBtn.addEventListener(
         }
 
 
-
         const telefono =
             "524778577491";
 
 
-
         let mensaje =
-
             "Hola *Lumina* 🕯️, me gustaría realizar el siguiente pedido:\n\n";
 
 
         let totalPrecio = 0;
 
 
-
         cart.forEach(item => {
 
 
             const currentPrice =
-
                 item.qty >= 10
-
                     ? item.wholesalePrice
-
                     : item.basePrice;
 
 
             const subtotal =
-
                 currentPrice *
                 item.qty;
 
@@ -1184,19 +1123,16 @@ checkoutBtn.addEventListener(
                 subtotal;
 
 
-
-            if (item.isCustom) {
+            if (
+                item.isCustom
+            ) {
 
                 mensaje +=
-
                     `▪️ *[PEDIDO PERSONALIZADO]* ${item.qty}x ${item.name} ($${currentPrice} c/u) = $${subtotal}\n`;
 
-            }
-
-            else {
+            } else {
 
                 mensaje +=
-
                     `▪️ ${item.qty}x ${item.name} ($${currentPrice} c/u) = $${subtotal}\n`;
 
             }
@@ -1204,16 +1140,12 @@ checkoutBtn.addEventListener(
         });
 
 
-
         mensaje +=
-
             `\n*Total a pagar: $${totalPrecio.toFixed(2)}*\n\n`;
 
 
         mensaje +=
-
             "Quedo a la espera de confirmación y métodos de pago. ¡Gracias!";
-
 
 
         const mensajeCodificado =
@@ -1222,11 +1154,8 @@ checkoutBtn.addEventListener(
             );
 
 
-
         const url =
-
             `https://wa.me/${telefono}?text=${mensajeCodificado}`;
-
 
 
         window.open(
