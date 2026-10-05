@@ -1,112 +1,155 @@
 /* ==========================================
    PALETA DE COLORES LUMINA
-   ==========================================
-
-   CANDY       #D93870
-   OLD BERRY   #9C116A
-   CREAM       #FFE8D4
-   ORANGE      #FC8F2D
-
    ========================================== */
+
+:root {
+
+    --candy: #D93870;
+
+    --old-berry: #9C116A;
+
+    --cream: #FFE8D4;
+
+    --orange: #FC8F2D;
+
+    /*
+       Fondo exterior MUY CLARO
+    */
+    --page-background: #FFF9F6;
+
+    /*
+       Rosa claro de la barra superior
+    */
+    --navbar-background: #FDE8F0;
+
+}
 
 
 /* ==========================================
    ESTILOS GENERALES
    ========================================== */
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+* {
+    box-sizing: border-box;
+}
 
-    /* CREAM - Fondo principal */
-    background-color: #FFE8D4;
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family:
+        'Segoe UI',
+        Tahoma,
+        Geneva,
+        Verdana,
+        sans-serif;
+
+    /*
+       ========================================
+       FONDO EXTERIOR
+       ========================================
+
+       Este es más claro que CREAM para
+       hacer que el panel central destaque.
+    */
+
+    background-color:
+        var(--page-background);
 
     margin: 0;
+
     padding: 0;
+
+    color: #59444F;
+
 }
 
 
 /* ==========================================
-   BARRA DE NAVEGACIÓN
+   BARRA SUPERIOR
    ========================================== */
 
 .navbar {
+
     position: sticky;
+
     top: 0;
 
-    /* Fondo CREAM */
-    background-color: #FFE8D4;
+    z-index: 2000;
 
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    /*
+       ROSA CLARO DEL LOGO
+    */
+
+    background-color:
+        var(--navbar-background);
+
+    box-shadow:
+        0 2px 10px
+        rgba(156, 17, 106, 0.10);
 
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 
-    padding: 15px 20px;
+    padding:
+        15px 20px;
 
-    z-index: 2000;
+    min-height: 88px;
+
 }
 
 
 /* ==========================================
-   LOGO DE LUMINA
+   LOGO LUMINA
    ========================================== */
 
 .brand-logo {
+
     /*
+       ======================================
        TAMAÑO DEL LOGO
+       ======================================
 
-       Actualmente está al 75% del tamaño original.
+       Este es aproximadamente el 75%
+       del tamaño original que manejábamos.
 
-       Para hacerlo más grande o pequeño,
-       modifica estos DOS valores.
+       Para hacerlo más grande:
+       aumenta width.
+
+       Para hacerlo más pequeño:
+       reduce width.
     */
 
     width: 116px;
+
     max-height: 51px;
 
     object-fit: contain;
 
     display: block;
+
 }
 
 
 /*
    EJEMPLOS:
 
-   Más pequeño:
-   width: 100px;
-   max-height: 44px;
+   PEQUEÑO:
+   width: 95px;
 
    ACTUAL:
    width: 116px;
-   max-height: 51px;
 
-   Más grande:
+   GRANDE:
    width: 140px;
-   max-height: 61px;
-
-   Original:
-   width: 155px;
-   max-height: 68px;
 */
-
-
-/* ==========================================
-   NOMBRE DE LA MARCA
-   ========================================== */
-
-.brand-name {
-    margin: 0;
-
-    color: #9C116A;
-
-    font-size: 24px;
-
-    font-weight: bold;
-
-    letter-spacing: 1px;
-}
 
 
 /* ==========================================
@@ -114,37 +157,44 @@ body {
    ========================================== */
 
 .menu-icon {
+
     position: absolute;
 
-    left: 20px;
+    left: 25px;
 
-    font-size: 26px;
+    font-size: 28px;
 
     cursor: pointer;
 
-    /* OLD BERRY */
-    color: #9C116A;
+    color:
+        var(--old-berry);
 
     user-select: none;
+
+    line-height: 1;
+
 }
 
 
 /* ==========================================
-   CARRITO
+   CARRITO SUPERIOR
    ========================================== */
 
 .cart-icon {
+
     position: absolute;
 
-    right: 20px;
+    right: 25px;
 
     font-size: 24px;
 
     cursor: pointer;
 
-    background: #FFE8D4;
+    background:
+        rgba(255,255,255,0.45);
 
-    padding: 8px 12px;
+    padding:
+        8px 12px;
 
     border-radius: 20px;
 
@@ -152,18 +202,24 @@ body {
 
     align-items: center;
 
-    transition: 0.3s;
+    transition:
+        0.3s;
+
 }
 
 
 .cart-icon:hover {
-    background: #D93870;
+
+    background:
+        var(--candy);
+
 }
 
 
 #cart-count {
-    /* OLD BERRY */
-    background: #9C116A;
+
+    background:
+        var(--old-berry);
 
     color: white;
 
@@ -173,17 +229,20 @@ body {
 
     border-radius: 50%;
 
-    padding: 2px 6px;
+    padding:
+        2px 6px;
 
     margin-left: 5px;
+
 }
 
 
 /* ==========================================
-   MENÚ LATERAL IZQUIERDO
+   MENÚ LATERAL
    ========================================== */
 
 .menu-sidebar {
+
     position: fixed;
 
     top: 0;
@@ -196,28 +255,36 @@ body {
 
     height: 100vh;
 
-    background-color: #FFE8D4;
+    background-color:
+        var(--cream);
 
-    box-shadow: 4px 0 15px rgba(0,0,0,0.1);
+    box-shadow:
+        4px 0 15px
+        rgba(0,0,0,0.12);
 
     z-index: 3000;
 
-    transition: left 0.3s ease;
+    transition:
+        left 0.3s ease;
 
     display: flex;
 
     flex-direction: column;
 
     justify-content: space-between;
+
 }
 
 
 .menu-sidebar.open {
+
     left: 0;
+
 }
 
 
 .menu-overlay {
+
     position: fixed;
 
     top: 0;
@@ -228,7 +295,8 @@ body {
 
     height: 100%;
 
-    background: rgba(0,0,0,0.5);
+    background:
+        rgba(0,0,0,0.5);
 
     z-index: 2999;
 
@@ -239,13 +307,16 @@ body {
     transition:
         opacity 0.3s ease,
         visibility 0.3s ease;
+
 }
 
 
 .menu-overlay.open {
+
     visibility: visible;
 
     opacity: 1;
+
 }
 
 
@@ -254,27 +325,33 @@ body {
    ========================================== */
 
 .menu-header {
+
     display: flex;
 
-    justify-content: space-between;
+    justify-content:
+        space-between;
 
     align-items: center;
 
     padding: 20px;
 
-    /* OLD BERRY */
-    background-color: #9C116A;
+    background-color:
+        var(--old-berry);
 
     color: white;
+
 }
 
 
 .menu-header h3 {
+
     margin: 0;
+
 }
 
 
 .close-menu {
+
     background: none;
 
     border: none;
@@ -284,6 +361,7 @@ body {
     font-size: 30px;
 
     cursor: pointer;
+
 }
 
 
@@ -292,20 +370,25 @@ body {
    ========================================== */
 
 .menu-list {
+
     list-style: none;
 
     padding: 0;
 
     margin: 20px 0;
+
 }
 
 
 .menu-list li a {
+
     display: block;
 
-    padding: 15px 25px;
+    padding:
+        15px 25px;
 
-    color: #9C116A;
+    color:
+        var(--old-berry);
 
     text-decoration: none;
 
@@ -313,19 +396,26 @@ body {
 
     font-weight: bold;
 
-    transition: 0.2s;
+    transition:
+        0.2s;
 
-    border-left: 4px solid transparent;
+    border-left:
+        4px solid transparent;
+
 }
 
 
 .menu-list li a:hover,
 .menu-list li a.active {
-    background-color: #D93870;
+
+    background-color:
+        var(--candy);
 
     color: white;
 
-    border-left-color: #9C116A;
+    border-left-color:
+        var(--old-berry);
+
 }
 
 
@@ -334,28 +424,37 @@ body {
    ========================================== */
 
 .menu-footer-contact {
-    padding: 20px 25px;
 
-    border-top: 1px solid #D93870;
+    padding:
+        20px 25px;
 
-    background-color: #FFE8D4;
+    border-top:
+        1px solid var(--candy);
+
+    background-color:
+        var(--cream);
+
 }
 
 
 .menu-footer-contact h4 {
-    margin: 0 0 12px 0;
 
-    color: #9C116A;
+    margin:
+        0 0 12px 0;
+
+    color:
+        var(--old-berry);
 
     font-size: 14px;
 
-    text-transform: uppercase;
+    text-transform:
+        uppercase;
 
-    letter-spacing: 0.5px;
 }
 
 
 .contact-item {
+
     display: flex;
 
     align-items: center;
@@ -364,33 +463,27 @@ body {
 
     margin-bottom: 10px;
 
-    color: #9C116A;
+    color:
+        var(--old-berry);
 
     font-size: 14px;
 
     font-weight: 500;
-}
 
-
-.contact-icon-svg {
-    width: 18px;
-
-    height: 18px;
-
-    color: #D93870;
-
-    flex-shrink: 0;
 }
 
 
 .phone-item {
+
     margin-bottom: 0;
 
     margin-top: 12px;
 
     padding-top: 10px;
 
-    border-top: 1px dashed #D93870;
+    border-top:
+        1px dashed var(--candy);
+
 }
 
 
@@ -399,6 +492,7 @@ body {
    ========================================== */
 
 .cart-sidebar {
+
     position: fixed;
 
     top: 0;
@@ -411,26 +505,34 @@ body {
 
     height: 100vh;
 
-    background-color: #FFE8D4;
+    background-color:
+        var(--cream);
 
-    box-shadow: -4px 0 15px rgba(0,0,0,0.1);
+    box-shadow:
+        -4px 0 15px
+        rgba(0,0,0,0.15);
 
     z-index: 3000;
 
-    transition: right 0.4s ease;
+    transition:
+        right 0.4s ease;
 
     display: flex;
 
     flex-direction: column;
+
 }
 
 
 .cart-sidebar.open {
+
     right: 0;
+
 }
 
 
 .cart-overlay {
+
     position: fixed;
 
     top: 0;
@@ -441,49 +543,57 @@ body {
 
     height: 100%;
 
-    background: rgba(0,0,0,0.5);
+    background:
+        rgba(0,0,0,0.5);
 
     z-index: 2999;
 
     display: none;
+
 }
 
 
 .cart-overlay.open {
+
     display: block;
+
 }
 
 
 /* ==========================================
-   ENCABEZADO DEL CARRITO
+   ENCABEZADO CARRITO
    ========================================== */
 
 .cart-header {
+
     display: flex;
 
-    justify-content: space-between;
+    justify-content:
+        space-between;
 
     align-items: center;
 
     padding: 20px;
 
-    border-bottom: 1px solid #D93870;
-
-    /* OLD BERRY */
-    background-color: #9C116A;
+    background-color:
+        var(--old-berry);
 
     color: white;
+
 }
 
 
 .cart-header h2 {
+
     margin: 0;
 
     font-size: 20px;
+
 }
 
 
 .close-cart {
+
     background: none;
 
     border: none;
@@ -493,24 +603,30 @@ body {
     font-size: 30px;
 
     cursor: pointer;
+
 }
 
 
 .cart-items {
+
     flex: 1;
 
     overflow-y: auto;
 
     padding: 20px;
+
 }
 
 
 .empty-cart-msg {
+
     text-align: center;
 
-    color: #9C116A;
+    color:
+        var(--old-berry);
 
     margin-top: 50px;
+
 }
 
 
@@ -519,126 +635,161 @@ body {
    ========================================== */
 
 .cart-item {
+
     display: flex;
 
-    justify-content: space-between;
+    justify-content:
+        space-between;
 
     align-items: center;
 
-    border-bottom: 1px solid #D93870;
+    border-bottom:
+        1px solid var(--candy);
 
     padding-bottom: 15px;
 
     margin-bottom: 15px;
+
 }
 
 
 .cart-item-info h4 {
-    margin: 0 0 5px 0;
 
-    color: #9C116A;
+    margin:
+        0 0 5px 0;
+
+    color:
+        var(--old-berry);
 
     font-size: 15px;
+
 }
 
 
 .cart-item-price {
-    color: #9C116A;
+
+    color:
+        var(--old-berry);
 
     font-weight: bold;
 
     font-size: 13px;
+
 }
 
 
 .cart-wholesale-note {
+
     font-size: 11px;
 
-    color: #D93870;
+    color:
+        var(--candy);
 
     font-weight: bold;
+
 }
 
 
 .cart-item-controls {
+
     display: flex;
 
     align-items: center;
 
     gap: 8px;
+
 }
 
 
 .qty-btn {
-    background: #D93870;
+
+    background:
+        var(--candy);
 
     color: white;
 
     border: none;
 
-    padding: 4px 8px;
+    padding:
+        4px 8px;
 
     border-radius: 4px;
 
     cursor: pointer;
 
     font-weight: bold;
+
 }
 
 
 .qty-btn:hover {
-    background: #9C116A;
+
+    background:
+        var(--old-berry);
+
 }
 
 
 .delete-btn {
+
     background: none;
 
     border: none;
 
-    color: #9C116A;
+    color:
+        var(--old-berry);
 
     font-size: 18px;
 
     cursor: pointer;
 
     margin-left: 10px;
+
 }
 
 
 /* ==========================================
-   PIE DEL CARRITO
+   FOOTER DEL CARRITO
    ========================================== */
 
 .cart-footer {
+
     padding: 20px;
 
-    border-top: 1px solid #D93870;
+    border-top:
+        1px solid var(--candy);
 
-    background: #FFE8D4;
+    background:
+        var(--cream);
+
 }
 
 
 .cart-total {
+
     font-size: 18px;
 
     font-weight: bold;
 
-    color: #9C116A;
+    color:
+        var(--old-berry);
 
     margin-bottom: 15px;
 
     display: flex;
 
-    justify-content: space-between;
+    justify-content:
+        space-between;
+
 }
 
 
 .checkout-btn {
+
     width: 100%;
 
-    /* CANDY */
-    background-color: #D93870;
+    background-color:
+        var(--candy);
 
     color: white;
 
@@ -654,40 +805,76 @@ body {
 
     cursor: pointer;
 
-    transition: 0.3s;
+    transition:
+        0.3s;
+
 }
 
 
 .checkout-btn:hover {
-    /* OLD BERRY */
-    background-color: #9C116A;
+
+    background-color:
+        var(--old-berry);
+
 }
 
 
 /* ==========================================
-   CONTENEDOR PRINCIPAL
+   CONTENEDOR CENTRAL
    ========================================== */
 
 .catalog-container {
-    /* CREAM */
-    background-color: #FFE8D4;
+
+    /*
+       ======================================
+       CREAM
+       ======================================
+
+       Este es el panel central que quieres
+       que resalte sobre el fondo exterior.
+    */
+
+    background-color:
+        var(--cream);
 
     max-width: 1000px;
 
-    margin: 0 auto;
+    margin:
+        30px auto 50px auto;
 
     padding: 40px;
 
-    border-radius: 8px;
+    border-radius: 12px;
 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow:
+        0 6px 25px
+        rgba(156,17,106,0.08);
 
-    margin-bottom: 50px;
 }
 
 
 .catalog-container.hidden {
+
     display: none;
+
+}
+
+
+/* ==========================================
+   TÍTULO DE VISTAS
+   ========================================== */
+
+.view-title {
+
+    text-align: center;
+
+    color:
+        var(--old-berry);
+
+    margin-top: 0;
+
+    margin-bottom: 30px;
+
 }
 
 
@@ -696,24 +883,30 @@ body {
    ========================================== */
 
 .story-section {
+
     text-align: center;
 
     margin-bottom: 40px;
+
 }
 
 
 .story-section h2 {
-    /* OLD BERRY */
-    color: #9C116A;
+
+    color:
+        var(--old-berry);
 
     font-size: 24px;
 
     margin-bottom: 15px;
+
 }
 
 
 .story-section p {
-    color: #5c4a50;
+
+    color:
+        #59444F;
 
     line-height: 1.6;
 
@@ -721,7 +914,9 @@ body {
 
     max-width: 800px;
 
-    margin: 0 auto;
+    margin:
+        0 auto;
+
 }
 
 
@@ -730,32 +925,40 @@ body {
    ========================================== */
 
 .benefits-section {
+
     margin-bottom: 40px;
 
     text-align: center;
+
 }
 
 
 .benefits-section h2 {
-    /* OLD BERRY */
-    color: #9C116A;
+
+    color:
+        var(--old-berry);
 
     font-size: 24px;
 
     margin-bottom: 10px;
+
 }
 
 
 .intro-benefits {
-    color: #5c4a50;
+
+    color:
+        #59444F;
 
     margin-bottom: 25px;
 
     font-size: 15px;
+
 }
 
 
 .benefits-grid {
+
     display: grid;
 
     grid-template-columns:
@@ -767,114 +970,139 @@ body {
     gap: 20px;
 
     text-align: left;
+
 }
 
 
 .benefit-card {
-    /* CREAM */
-    background-color: #FFE8D4;
+
+    background-color:
+        rgba(255,255,255,0.30);
 
     padding: 20px;
 
     border-radius: 6px;
 
-    /* OLD BERRY */
-    border-left: 4px solid #9C116A;
+    border-left:
+        4px solid var(--old-berry);
+
 }
 
 
 .benefit-card h3 {
+
     margin-top: 0;
 
-    color: #9C116A;
+    color:
+        var(--old-berry);
 
     font-size: 17px;
+
 }
 
 
 .benefit-card p {
-    color: #5c4a50;
+
+    color:
+        #59444F;
 
     font-size: 14px;
 
     margin-bottom: 0;
 
     line-height: 1.5;
+
 }
 
 
 /* ==========================================
-   GUÍA DE ESENCIAS
+   ESENCIAS
    ========================================== */
 
 .essays-guide {
+
     margin-bottom: 40px;
+
 }
 
 
 .essays-guide h2 {
-    color: #9C116A;
+
+    color:
+        var(--old-berry);
 
     font-size: 24px;
 
     text-align: center;
 
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+
 }
 
 
 .guide-list {
+
     display: flex;
 
     flex-direction: column;
 
-    gap: 15px;
+    gap: 25px;
+
 }
 
 
 .guide-item {
+
     display: flex;
 
     align-items: center;
 
     gap: 20px;
 
-    background: #FFE8D4;
-
     padding: 15px;
 
     border-radius: 6px;
+
 }
 
 
 .guide-item img {
-    width: 80px;
 
-    height: 80px;
+    width: 95px;
+
+    height: 95px;
 
     object-fit: cover;
 
-    border-radius: 6px;
+    border-radius: 7px;
 
     flex-shrink: 0;
+
 }
 
 
 .guide-item h4 {
-    margin: 0 0 5px 0;
 
-    color: #9C116A;
+    margin:
+        0 0 5px 0;
 
-    font-size: 16px;
+    color:
+        var(--old-berry);
+
+    font-size: 17px;
+
 }
 
 
 .guide-item p {
+
     margin: 0;
 
-    color: #5c4a50;
+    color:
+        #59444F;
 
     font-size: 14px;
+
 }
 
 
@@ -883,35 +1111,44 @@ body {
    ========================================== */
 
 .product-carousel-section {
+
     margin-top: 40px;
 
-    border-top: 1px solid #D93870;
+    border-top:
+        1px solid var(--candy);
 
     padding-top: 30px;
+
 }
 
 
 .product-carousel-section h2 {
-    color: #9C116A;
+
+    color:
+        var(--old-berry);
 
     font-size: 24px;
 
     text-align: center;
 
     margin-bottom: 5px;
+
 }
 
 
 .carousel-hint {
+
     text-align: center;
 
-    color: #9C116A;
+    color:
+        var(--old-berry);
 
     font-size: 13px;
 
     margin-bottom: 20px;
 
     cursor: pointer;
+
 }
 
 
@@ -920,6 +1157,7 @@ body {
    ========================================== */
 
 .horizontal-carousel {
+
     display: flex;
 
     overflow-x: auto;
@@ -928,26 +1166,45 @@ body {
 
     padding-bottom: 15px;
 
-    scroll-snap-type: x mandatory;
+    scroll-snap-type:
+        x mandatory;
+
 }
 
 
 .horizontal-carousel::-webkit-scrollbar {
+
     height: 8px;
+
 }
 
 
 .horizontal-carousel::-webkit-scrollbar-thumb {
-    background: #D93870;
+
+    background:
+        var(--candy);
 
     border-radius: 4px;
+
 }
 
 
-.candle-item {
-    background: #FFF8F2;
+/* ==========================================
+   TARJETAS
+   ========================================== */
 
-    border: 1px solid #D93870;
+.candle-item {
+
+    background:
+        #FFFDFC;
+
+    border:
+        1px solid rgba(
+            216,
+            56,
+            112,
+            0.25
+        );
 
     padding: 20px;
 
@@ -961,11 +1218,14 @@ body {
 
     flex: 0 0 auto;
 
-    scroll-snap-align: start;
+    scroll-snap-align:
+        start;
+
 }
 
 
 .gallery-img {
+
     width: 100%;
 
     height: 160px;
@@ -976,30 +1236,42 @@ body {
 
     margin-bottom: 15px;
 
-    transition: transform 0.2s;
+    transition:
+        transform 0.2s;
+
 }
 
 
 .gallery-img:hover {
-    transform: scale(1.05);
+
+    transform:
+        scale(1.05);
+
 }
 
 
 .candle-item h3 {
+
     margin: 0;
 
-    color: #9C116A;
+    color:
+        var(--old-berry);
 
     font-size: 17px;
+
 }
 
 
 .candle-item .desc {
-    color: #6b5a60;
+
+    color:
+        #715B66;
 
     font-size: 13px;
 
-    margin: 5px 0 15px 0;
+    margin:
+        5px 0 15px 0;
+
 }
 
 
@@ -1008,37 +1280,44 @@ body {
    ========================================== */
 
 .price-badge {
-    /* ORANGE */
-    background-color: #FC8F2D;
+
+    background-color:
+        var(--orange);
 
     color: white;
 
     display: inline-block;
 
-    padding: 5px 15px;
+    padding:
+        5px 15px;
 
     font-weight: bold;
 
     border-radius: 4px;
 
     margin-bottom: 10px;
+
 }
 
 
 .wholesale {
-    color: #6b5a60;
+
+    color:
+        #715B66;
 
     font-size: 11px;
 
     margin-bottom: 15px;
+
 }
 
 
 /* ==========================================
-   CONTROLES DE CARRITO
+   CONTROLES
    ========================================== */
 
 .cart-controls {
+
     display: flex;
 
     justify-content: center;
@@ -1046,35 +1325,43 @@ body {
     align-items: center;
 
     gap: 10px;
+
 }
 
 
 .qty-input {
+
     width: 45px;
 
     padding: 8px;
 
     text-align: center;
 
-    border: 1px solid #D93870;
+    border:
+        1px solid var(--candy);
 
     border-radius: 4px;
 
-    color: #9C116A;
+    color:
+        var(--old-berry);
 
-    background: #FFF8F2;
+    background:
+        white;
+
 }
 
 
 .add-btn {
-    /* CANDY */
-    background-color: #D93870;
+
+    background-color:
+        var(--candy);
 
     color: white;
 
     border: none;
 
-    padding: 9px 15px;
+    padding:
+        9px 15px;
 
     border-radius: 4px;
 
@@ -1082,13 +1369,17 @@ body {
 
     font-weight: bold;
 
-    transition: 0.3s;
+    transition:
+        0.3s;
+
 }
 
 
 .add-btn:hover {
-    /* OLD BERRY */
-    background-color: #9C116A;
+
+    background-color:
+        var(--old-berry);
+
 }
 
 
@@ -1097,6 +1388,7 @@ body {
    ========================================== */
 
 .gallery {
+
     display: grid;
 
     grid-template-columns:
@@ -1108,6 +1400,16 @@ body {
     gap: 40px 20px;
 
     justify-items: center;
+
+}
+
+
+.gallery .candle-item {
+
+    width: 100%;
+
+    max-width: 280px;
+
 }
 
 
@@ -1116,149 +1418,203 @@ body {
    ========================================== */
 
 .custom-builder {
+
     max-width: 500px;
 
-    margin: 0 auto;
+    margin:
+        0 auto;
 
     text-align: center;
+
 }
 
 
 .custom-builder h3 {
-    color: #9C116A;
+
+    color:
+        var(--old-berry);
 
     font-size: 22px;
 
     margin-top: 0;
+
+}
+
+
+.custom-builder > p {
+
+    color:
+        #59444F;
+
 }
 
 
 .form-group {
+
     text-align: left;
 
     margin-bottom: 20px;
+
 }
 
 
 .form-group label {
+
     display: block;
 
     font-weight: bold;
 
-    color: #9C116A;
+    color:
+        var(--old-berry);
 
     margin-bottom: 8px;
 
     font-size: 14px;
+
 }
 
 
 .form-group select {
+
     width: 100%;
 
     padding: 10px;
 
-    border: 1px solid #D93870;
+    border:
+        1px solid var(--candy);
 
     border-radius: 5px;
 
     font-size: 15px;
 
-    background-color: #FFF8F2;
+    background-color:
+        white;
 
-    color: #9C116A;
+    color:
+        var(--old-berry);
+
 }
 
 
 .custom-price-info {
-    background: #FFE8D4;
 
-    padding: 10px;
+    background:
+        rgba(255,255,255,0.40);
+
+    padding: 12px;
 
     border-radius: 5px;
 
-    color: #9C116A;
+    color:
+        var(--old-berry);
 
     font-size: 14px;
 
     margin-top: 15px;
 
-    border: 1px solid #D93870;
+    border:
+        1px solid var(--candy);
+
+}
+
+
+.custom-submit {
+
+    margin-top: 20px;
+
 }
 
 
 /* ==========================================
-   PIE DE PÁGINA
+   FOOTER
    ========================================== */
 
 .site-footer {
+
     /*
-       CAMBIO IMPORTANTE:
-
-       Antes era café oscuro.
-
-       Ahora es OLD BERRY.
+       OLD BERRY
     */
 
-    background-color: #9C116A;
+    background-color:
+        var(--old-berry);
 
-    color: #FFE8D4;
+    color:
+        var(--cream);
 
-    padding: 40px 20px 20px 20px;
+    padding:
+        40px 20px 20px 20px;
 
     margin-top: 60px;
+
 }
 
 
 .footer-content {
+
     max-width: 1000px;
 
-    margin: 0 auto;
+    margin:
+        0 auto;
 
     display: flex;
 
-    justify-content: space-between;
+    justify-content:
+        space-between;
 
     flex-wrap: wrap;
 
     gap: 30px;
+
 }
 
 
 .footer-brand h3 {
-    margin: 0 0 10px 0;
 
-    color: #FFE8D4;
+    margin:
+        0 0 10px 0;
+
+    color:
+        var(--cream);
 
     font-size: 20px;
+
 }
 
 
 .footer-brand p {
+
     margin: 0;
 
     font-size: 14px;
 
-    color: #FFE8D4;
+    color:
+        var(--cream);
 
     max-width: 300px;
 
     line-height: 1.5;
+
 }
 
 
 .footer-contact-info h4 {
-    margin: 0 0 12px 0;
 
-    color: #FFE8D4;
+    margin:
+        0 0 12px 0;
+
+    color:
+        var(--cream);
 
     font-size: 15px;
 
-    text-transform: uppercase;
+    text-transform:
+        uppercase;
+
 }
 
 
 .footer-item {
+
     display: flex;
 
     align-items: center;
@@ -1269,43 +1625,40 @@ body {
 
     font-size: 14px;
 
-    color: #FFE8D4;
-}
+    color:
+        var(--cream);
 
-
-.footer-icon-svg {
-    width: 16px;
-
-    height: 16px;
-
-    color: #D93870;
-
-    flex-shrink: 0;
 }
 
 
 .footer-bottom {
+
     max-width: 1000px;
 
-    margin: 30px auto 0 auto;
+    margin:
+        30px auto 0 auto;
 
     padding-top: 15px;
 
-    border-top: 1px solid #D93870;
+    border-top:
+        1px solid var(--candy);
 
     text-align: center;
 
     font-size: 12px;
 
-    color: #FFE8D4;
+    color:
+        var(--cream);
+
 }
 
 
 /* ==========================================
-   MODAL DEL CARRUSEL
+   MODAL
    ========================================== */
 
 .modal {
+
     display: none;
 
     position: fixed;
@@ -1320,15 +1673,18 @@ body {
 
     height: 100%;
 
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color:
+        rgba(0,0,0,0.85);
 
     align-items: center;
 
     justify-content: center;
+
 }
 
 
 .modal-content {
+
     max-width: 80%;
 
     max-height: 85vh;
@@ -1336,10 +1692,12 @@ body {
     border-radius: 8px;
 
     object-fit: contain;
+
 }
 
 
 .close-btn {
+
     position: absolute;
 
     top: 20px;
@@ -1353,17 +1711,20 @@ body {
     font-weight: bold;
 
     cursor: pointer;
+
 }
 
 
 .nav-btn {
+
     cursor: pointer;
 
     position: absolute;
 
     top: 50%;
 
-    transform: translateY(-50%);
+    transform:
+        translateY(-50%);
 
     padding: 16px;
 
@@ -1371,21 +1732,27 @@ body {
 
     font-size: 24px;
 
-    background-color: #9C116A;
+    background-color:
+        var(--old-berry);
 
     border: none;
 
     border-radius: 4px;
+
 }
 
 
 .prev-btn {
+
     left: 20px;
+
 }
 
 
 .next-btn {
+
     right: 20px;
+
 }
 
 
@@ -1395,66 +1762,120 @@ body {
 
 @media (max-width: 768px) {
 
-    .brand-logo {
-        /*
-           TAMAÑO DEL LOGO EN CELULAR
 
-           Puedes modificar estos valores
-           independientemente si quieres.
+    .navbar {
+
+        min-height: 75px;
+
+        padding:
+            10px 15px;
+
+    }
+
+
+    .brand-logo {
+
+        /*
+           LOGO EN CELULAR
+
+           Si quieres cambiarlo,
+           modifica este valor.
         */
 
         width: 94px;
 
         max-height: 45px;
-    }
 
-
-    .navbar {
-        padding: 12px 15px;
     }
 
 
     .menu-icon {
+
         left: 15px;
 
-        font-size: 24px;
+        font-size: 25px;
+
     }
 
 
     .cart-icon {
+
         right: 15px;
 
         font-size: 21px;
 
-        padding: 7px 10px;
+        padding:
+            7px 10px;
+
     }
 
 
     .catalog-container {
-        margin: 0 10px 40px 10px;
 
-        padding: 25px 20px;
+        margin:
+            20px 10px 40px 10px;
+
+        padding:
+            25px 20px;
+
     }
 
 
     .benefits-grid {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+            1fr;
+
     }
 
 
     .guide-item {
-        align-items: flex-start;
+
+        align-items:
+            flex-start;
+
+    }
+
+
+    .guide-item img {
+
+        width: 75px;
+
+        height: 75px;
+
     }
 
 
     .candle-item {
+
         min-width: 220px;
 
         max-width: 220px;
+
     }
 
 
     .footer-content {
-        flex-direction: column;
+
+        flex-direction:
+            column;
+
     }
+
+
+    .modal-content {
+
+        max-width: 90%;
+
+    }
+
+
+    .nav-btn {
+
+        padding: 10px;
+
+        font-size: 20px;
+
+    }
+
 }
