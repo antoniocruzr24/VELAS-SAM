@@ -2,6 +2,11 @@
    ESTILOS GENERALES
    ========================================== */
 
+* {
+    box-sizing: border-box;
+}
+
+
 body {
 
     font-family:
@@ -16,11 +21,13 @@ body {
     margin: 0;
 
     padding: 0;
+
 }
 
 
+
 /* ==========================================
-   BARRA DE NAVEGACIÓN
+   BARRA SUPERIOR
    ========================================== */
 
 .navbar {
@@ -29,10 +36,14 @@ body {
 
     top: 0;
 
-    background-color: #ffffff;
+    width: 100%;
+
+    height: 78px;
+
+    background-color: #FCE2E9;
 
     box-shadow:
-        0 2px 10px rgba(0,0,0,0.1);
+        0 2px 10px rgba(0, 0, 0, 0.08);
 
     display: flex;
 
@@ -40,11 +51,59 @@ body {
 
     align-items: center;
 
-    padding: 15px 20px;
+    padding: 0 20px;
 
     z-index: 2000;
+
 }
 
+
+
+/* ==========================================
+   LOGO LUMINA
+   ========================================== */
+
+.brand-logo-container {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    height: 100%;
+
+}
+
+
+.brand-logo {
+
+    width: 155px;
+
+    height: auto;
+
+    max-height: 68px;
+
+    object-fit: contain;
+
+    display: block;
+
+}
+
+
+
+/* ==========================================
+   BOTÓN MENÚ
+   ========================================== */
 
 .menu-icon {
 
@@ -52,29 +111,32 @@ body {
 
     left: 20px;
 
-    font-size: 26px;
+    font-size: 28px;
 
     cursor: pointer;
 
     color: #836253;
 
     user-select: none;
+
+    z-index: 2;
+
+    line-height: 1;
+
 }
 
 
-.brand-name {
+.menu-icon:hover {
 
-    margin: 0;
+    color: #6a4f43;
 
-    color: #836253;
-
-    font-size: 24px;
-
-    font-weight: bold;
-
-    letter-spacing: 1px;
 }
 
+
+
+/* ==========================================
+   CARRITO SUPERIOR
+   ========================================== */
 
 .cart-icon {
 
@@ -86,7 +148,7 @@ body {
 
     cursor: pointer;
 
-    background: #f6efeb;
+    background: rgba(255, 255, 255, 0.65);
 
     padding: 8px 12px;
 
@@ -97,12 +159,15 @@ body {
     align-items: center;
 
     transition: 0.3s;
+
+    z-index: 2;
+
 }
 
 
 .cart-icon:hover {
 
-    background: #e9e0d9;
+    background: rgba(255, 255, 255, 0.9);
 
 }
 
@@ -122,12 +187,13 @@ body {
     padding: 2px 6px;
 
     margin-left: 5px;
+
 }
 
 
 
 /* ==========================================
-   MENÚ LATERAL IZQUIERDO
+   MENÚ LATERAL
    ========================================== */
 
 .menu-sidebar {
@@ -159,6 +225,7 @@ body {
     flex-direction: column;
 
     justify-content: space-between;
+
 }
 
 
@@ -193,6 +260,7 @@ body {
     transition:
         opacity 0.3s ease,
         visibility 0.3s ease;
+
 }
 
 
@@ -204,6 +272,11 @@ body {
 
 }
 
+
+
+/* ==========================================
+   ENCABEZADO DEL MENÚ
+   ========================================== */
 
 .menu-header {
 
@@ -218,6 +291,7 @@ body {
     background-color: #836253;
 
     color: white;
+
 }
 
 
@@ -242,6 +316,11 @@ body {
 
 }
 
+
+
+/* ==========================================
+   LISTA DEL MENÚ
+   ========================================== */
 
 .menu-list {
 
@@ -272,6 +351,7 @@ body {
 
     border-left:
         4px solid transparent;
+
 }
 
 
@@ -367,7 +447,7 @@ body {
 
 
 /* ==========================================
-   CARRITO
+   CARRITO LATERAL
    ========================================== */
 
 .cart-sidebar {
@@ -397,6 +477,7 @@ body {
     display: flex;
 
     flex-direction: column;
+
 }
 
 
@@ -425,6 +506,7 @@ body {
     z-index: 2999;
 
     display: none;
+
 }
 
 
@@ -451,6 +533,7 @@ body {
     background-color: #bfa899;
 
     color: white;
+
 }
 
 
@@ -1024,7 +1107,8 @@ body {
 
 .horizontal-carousel::-webkit-scrollbar-thumb {
 
-    background: #d6ccc4;
+    background:
+        #d6ccc4;
 
     border-radius: 4px;
 
@@ -1194,7 +1278,7 @@ body {
 
 
 /* ==========================================
-   GALERÍA COMPLETA
+   CATÁLOGO COMPLETO
    ========================================== */
 
 .gallery {
@@ -1302,7 +1386,7 @@ body {
 
 
 /* ==========================================
-   PIE DE PÁGINA
+   FOOTER
    ========================================== */
 
 .site-footer {
@@ -1394,19 +1478,6 @@ body {
 }
 
 
-.footer-icon-svg {
-
-    width: 16px;
-
-    height: 16px;
-
-    color: #bfa899;
-
-    flex-shrink: 0;
-
-}
-
-
 .footer-bottom {
 
     max-width: 1000px;
@@ -1430,7 +1501,7 @@ body {
 
 
 /* ==========================================
-   MODAL DEL CARRUSEL
+   MODAL DE IMÁGENES
    ========================================== */
 
 .modal {
@@ -1528,5 +1599,95 @@ body {
 .next-btn {
 
     right: 20px;
+
+}
+
+
+
+/* ==========================================
+   ADAPTACIÓN PARA CELULAR
+   ========================================== */
+
+@media (max-width: 600px) {
+
+
+    .navbar {
+
+        height: 70px;
+
+    }
+
+
+    .brand-logo {
+
+        width: 125px;
+
+        max-height: 60px;
+
+    }
+
+
+    .menu-icon {
+
+        left: 16px;
+
+        font-size: 26px;
+
+    }
+
+
+    .cart-icon {
+
+        right: 16px;
+
+        font-size: 21px;
+
+        padding:
+            7px 10px;
+
+    }
+
+
+    .catalog-container {
+
+        margin:
+            20px 10px 40px 10px;
+
+        padding: 25px 18px;
+
+    }
+
+
+    .guide-item {
+
+        align-items: flex-start;
+
+    }
+
+
+    .guide-item img {
+
+        width: 65px;
+
+        height: 65px;
+
+    }
+
+
+    .candle-item {
+
+        min-width: 220px;
+
+        max-width: 220px;
+
+    }
+
+
+    .footer-content {
+
+        flex-direction: column;
+
+    }
+
 
 }
