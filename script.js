@@ -163,7 +163,6 @@ const fullCatalogGrid =
     document.getElementById("full-catalog-grid");
 
 
-
 // Abrir menú
 const openMenu = () => {
 
@@ -279,10 +278,6 @@ linkAll.addEventListener("click", (e) => {
 // OPCIÓN 2: CATÁLOGO COMPLETO
 // ==========================================
 
-// Esta función sirve para abrir el catálogo completo.
-// Se utiliza tanto desde el menú como desde el texto
-// "Desliza para explorar nuestro catálogo completo".
-
 const openCatalog = (e) => {
 
 
@@ -293,23 +288,17 @@ const openCatalog = (e) => {
     }
 
 
-    // Activar "Catálogo Completo"
     setActiveLink(linkCatalogView);
 
 
-    // Ocultar las demás vistas
     hideAllViews();
 
 
-    // Mostrar catálogo
     catalogView.classList.remove("hidden");
 
 
 
-    // ==========================================
-    // CARGAR LOS PRODUCTOS
-    // ==========================================
-
+    // Cargar los productos
     if (
         fullCatalogGrid.children.length === 0
     ) {
@@ -339,9 +328,7 @@ const openCatalog = (e) => {
 
 
 
-    // ==========================================
-    // MOSTRAR TODOS LOS PRODUCTOS
-    // ==========================================
+    // Mostrar todos los productos
 
     const gridItems =
         fullCatalogGrid.querySelectorAll(
@@ -357,7 +344,6 @@ const openCatalog = (e) => {
 
 
 
-    // Regresar al inicio
     window.scrollTo({
 
         top: 0,
@@ -370,9 +356,7 @@ const openCatalog = (e) => {
 
 
 
-// ==========================================
-// CATÁLOGO DESDE EL MENÚ
-// ==========================================
+// Catálogo desde el menú
 
 linkCatalogView.addEventListener(
     "click",
@@ -381,9 +365,7 @@ linkCatalogView.addEventListener(
 
 
 
-// ==========================================
-// CATÁLOGO DESDE EL TEXTO/BOTÓN
-// ==========================================
+// Catálogo desde el botón
 
 const catalogLink =
     document.getElementById("catalog-link");
@@ -449,9 +431,6 @@ linkSeasonal.addEventListener("click", (e) => {
 
 
 
-    // Si todavía no existen productos
-    // en el catálogo, los copiamos.
-
     if (
         fullCatalogGrid.children.length === 0
     ) {
@@ -465,20 +444,15 @@ linkSeasonal.addEventListener("click", (e) => {
 
         items.forEach(item => {
 
-
             fullCatalogGrid.appendChild(
                 item.cloneNode(true)
             );
-
 
         });
 
     }
 
 
-
-    // Mostrar únicamente productos
-    // de temporada
 
     const gridItems =
         fullCatalogGrid.querySelectorAll(
@@ -702,8 +676,6 @@ document.addEventListener("click", (e) => {
 
 
 
-        // Regresar cantidad a 1
-
         candleItem
             .querySelector(
                 ".qty-input"
@@ -712,12 +684,8 @@ document.addEventListener("click", (e) => {
 
 
 
-        // Actualizar carrito
-
         updateCartUI();
 
-
-        // Abrir carrito
 
         openCart();
 
@@ -742,7 +710,6 @@ customForm.addEventListener(
     (e) => {
 
         e.preventDefault();
-
 
 
         const shape =
@@ -849,8 +816,6 @@ const updateCartUI = () => {
 
 
 
-    // Carrito vacío
-
     if (cart.length === 0) {
 
 
@@ -862,12 +827,8 @@ const updateCartUI = () => {
     } else {
 
 
-        // Recorrer productos
-
         cart.forEach((item) => {
 
-
-            // Mayoreo a partir de 10 piezas
 
             let currentPrice =
 
@@ -906,7 +867,6 @@ const updateCartUI = () => {
                             $${currentPrice.toFixed(2)} c/u
 
                             ${
-
                                 item.qty >= 10
 
                                 ?
@@ -928,9 +888,10 @@ const updateCartUI = () => {
 
                         <button
                             class="qty-btn"
-                            onclick="changeQty('${item.id}', -1)"
-                        >
+                            onclick="changeQty('${item.id}', -1)">
+
                             -
+
                         </button>
 
 
@@ -941,17 +902,19 @@ const updateCartUI = () => {
 
                         <button
                             class="qty-btn"
-                            onclick="changeQty('${item.id}', 1)"
-                        >
+                            onclick="changeQty('${item.id}', 1)">
+
                             +
+
                         </button>
 
 
                         <button
                             class="delete-btn"
-                            onclick="removeItem('${item.id}')"
-                        >
+                            onclick="removeItem('${item.id}')">
+
                             🗑️
+
                         </button>
 
                     </div>
@@ -975,14 +938,9 @@ const updateCartUI = () => {
 
 
 
-    // Actualizar contador
-
     cartCountElement.innerText =
         totalItems;
 
-
-
-    // Actualizar total
 
     cartTotalPriceElement.innerText =
         totalPrice.toFixed(2);
@@ -998,7 +956,6 @@ const updateCartUI = () => {
 window.changeQty =
     (id, amount) => {
 
-
         const item =
             cart.find(
                 i => i.id === id
@@ -1007,9 +964,7 @@ window.changeQty =
 
         if (item) {
 
-
             item.qty += amount;
-
 
 
             if (item.qty <= 0) {
@@ -1063,8 +1018,6 @@ checkoutBtn.addEventListener(
     () => {
 
 
-        // Verificar carrito vacío
-
         if (cart.length === 0) {
 
 
@@ -1083,7 +1036,6 @@ checkoutBtn.addEventListener(
             "524778577491";
 
 
-
         let mensaje =
             "Hola *Velas Sam* 🕯️, me gustaría realizar el siguiente pedido:\n\n";
 
@@ -1094,8 +1046,6 @@ checkoutBtn.addEventListener(
 
         cart.forEach(item => {
 
-
-            // Precio según cantidad
 
             let currentPrice =
 
@@ -1114,8 +1064,6 @@ checkoutBtn.addEventListener(
             totalPrecio += subtotal;
 
 
-
-            // Producto personalizado
 
             if (item.isCustom) {
 
@@ -1143,7 +1091,6 @@ checkoutBtn.addEventListener(
             `\n*Total a pagar: $${totalPrecio.toFixed(2)}*\n\n`;
 
 
-
         mensaje +=
 
             "Quedo a la espera de confirmación y métodos de pago. ¡Gracias!";
@@ -1151,6 +1098,7 @@ checkoutBtn.addEventListener(
 
 
         const mensajeCodificado =
+
             encodeURIComponent(
                 mensaje
             );
